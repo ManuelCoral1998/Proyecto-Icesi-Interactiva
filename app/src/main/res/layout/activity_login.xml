@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/logo"
+        android:src="@drawable/logo"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_signup_nombre"
+        android:layout_below="@+id/logo"
+        android:hint="Nombre"
+        />
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/et_signup_correo"
+        android:layout_below="@+id/et_signup_nombre"
+        android:hint="Correo"
+        android:layout_marginTop="80dp"
+        android:inputType="textEmailAddress"
+        />
+
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/et_signup_correo"
+        android:text="Iniciar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:id="@+id/btn_signup_ingresar"
+        android:background="@drawable/bordesredondeados"
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+
+        />
+
+
+
+</RelativeLayout>

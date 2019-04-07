@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="¡BIENVENIDOS A ICESI INTERACTIVA!"
+        android:gravity="center"
+        android:background="#009678"
+        android:textColor="#000000"
+        android:id="@+id/welcome"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/welcome"
+        android:hint="Instrucciones de uso:"
+        android:id="@+id/et_titulo_instrucciones"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_titulo_instrucciones"
+        android:id="@+id/et_instrucciones"
+        android:hint="aqui se pone la info"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_instrucciones"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:hint="comencemos"
+        android:background="@drawable/bordesredondeados"
+        />
+
+
+
+
+
+</RelativeLayout>
