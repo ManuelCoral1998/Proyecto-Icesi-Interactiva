@@ -18,6 +18,5 @@ public class Login extends AppCompatActivity {
         et_signup_name = findViewById(R.id.et_signup_nombre);
         et_signup_email = findViewById(R.id.et_signup_correo);
 
-
     }
 }
