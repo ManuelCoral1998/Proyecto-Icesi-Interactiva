@@ -7,4 +7,6 @@ public class IcesiInteractiva {
     private Invitado invitado;
     private ArrayList<Proyecto> proyectos;
 
+
+
 }
