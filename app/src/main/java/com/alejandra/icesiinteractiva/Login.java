@@ -4,8 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.alejandra.icesiinteractiva.DB.DBHandler;
+
 public class Login extends AppCompatActivity {
 
+    private DBHandler conn = null;
 
     private EditText et_signup_name;
     private EditText et_signup_email;
@@ -17,6 +20,10 @@ public class Login extends AppCompatActivity {
 
         et_signup_name = findViewById(R.id.et_signup_nombre);
         et_signup_email = findViewById(R.id.et_signup_correo);
+
+        final DBHandler con = new DBHandler();
+        conn = con;
+        con.execute();
 
     }
 }
