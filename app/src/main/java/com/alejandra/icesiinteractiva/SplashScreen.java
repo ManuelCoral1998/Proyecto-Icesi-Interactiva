@@ -12,7 +12,7 @@ import com.alejandra.icesiinteractiva.model.Invitado;
 
 public class SplashScreen extends Activity {
 
-    private final int DURACION = 2000;
+    private final int DURACION = 1000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
