@@ -12,6 +12,8 @@ import java.sql.Statement;
 
 public class DBHandler extends AsyncTask<String, Void, Void> {
 
+    private static DBHandler instance;
+
     public static final String LOGIN = "P09728_1_1";
     public static final String PASS = "JuElt3Ae";
     public static final String URL = "jdbc:mysql://200.3.193.22:3306/" + LOGIN;
@@ -25,6 +27,14 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
         } catch (Exception e) {}
         return null;
+    }
+
+    public static DBHandler getInstance () {
+        if (instance == null) {
+            instance = new DBHandler();
+            instance.execute();
+        }
+        return instance;
     }
 
     public void crearInvitadoSQL(final Invitado invitado) {
