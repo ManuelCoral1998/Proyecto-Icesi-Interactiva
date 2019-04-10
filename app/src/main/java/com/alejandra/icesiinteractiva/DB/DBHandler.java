@@ -1,6 +1,7 @@
 package com.alejandra.icesiinteractiva.DB;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.alejandra.icesiinteractiva.model.Invitado;
 
@@ -25,7 +26,12 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            Log.d(">>>> DB", "NO PASO");
+        }
+        finally {
+            Log.d(">>>> DB", "PASO");
+        }
         return null;
     }
 
