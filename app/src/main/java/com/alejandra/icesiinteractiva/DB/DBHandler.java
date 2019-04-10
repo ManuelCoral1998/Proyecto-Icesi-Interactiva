@@ -27,7 +27,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
         } catch (Exception e) {
-            Log.d(">>>> DB", "NO PASO");
+            Log.d(">>>> DB", "NO PASO" + e.getMessage());
         }
         finally {
             Log.d(">>>> DB", "PASO");
