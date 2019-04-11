@@ -1,9 +1,11 @@
 package com.alejandra.icesiinteractiva.DB;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
 import com.alejandra.icesiinteractiva.model.Invitado;
+import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -67,8 +69,8 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         send.execute((Runnable) invitado);
     }
 
-    public ArrayList<String> traerDatosProyectos() {
-        ArrayList<String> datos = new ArrayList<>();
+    public ArrayList<Proyecto> traerDatosProyectos() {
+        ArrayList<Proyecto> proyectos = new ArrayList<>();
         Statement state = null;
         try {
             state = conn.createStatement();
@@ -80,19 +82,18 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 String descripcion = rs.getString("descripcion");
                 String materia = rs.getString("materia");
                 String expositores = rs.getString("expositores");
-                String logo = rs.getString("logo");
+                int logo = Integer.parseInt(rs.getString("logo"));
                 String palabra_clave = rs.getString("palabra_clave");
 
-                String datosPorProyecto = nombre + ";" + descripcion + ";" + materia + ";" + materia + ";" +
-                        expositores + ";" + logo + ";" + palabra_clave;
+                Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, logo, palabra_clave);
 
-                datos.add(datosPorProyecto);
+                proyectos.add(proyecto);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return datos;
+        return proyectos;
     }
 
 }

@@ -25,6 +25,8 @@ public class ProjectList extends AppCompatActivity {
 
         listaProyectos = (ListView) findViewById(R.id.listView);
 
+        adaptador = new Adapter(this, generarArrayList());
+
         listaProyectos.setAdapter(adaptador);
 
         listaProyectos.setTextFilterEnabled(true);
@@ -44,11 +46,7 @@ public class ProjectList extends AppCompatActivity {
 
 
     private ArrayList<Proyecto> generarArrayList () {
-        ArrayList<Proyecto> lista = new ArrayList<>();
-
-        ArrayList<String> listaAux = db.traerDatosProyectos();
-
-
+        ArrayList<Proyecto> lista = db.traerDatosProyectos();
 
         return lista;
     }
