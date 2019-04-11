@@ -6,15 +6,35 @@ public class Proyecto {
     private String description;
     private String subject;
     private String exhibitors;
+    private int logoProyecto;
+    private String palabrasClaves;
 
     public Proyecto() {
     }
 
-    public Proyecto(String name, String description, String subject, String exhibitors) {
+    public Proyecto(String name, String description, String subject, String exhibitors, int logoProyecto, String palabrasClaves) {
         this.name = name;
         this.description = description;
         this.subject = subject;
         this.exhibitors = exhibitors;
+        this.logoProyecto = logoProyecto;
+        this.palabrasClaves = palabrasClaves;
+    }
+
+    public String getPalabrasClaves () {
+        return palabrasClaves;
+    }
+
+    public void setPalabrasClaves (String palabrasClaves) {
+        this.palabrasClaves = palabrasClaves;
+    }
+
+    public int getLogoProyecto () {
+        return logoProyecto;
+    }
+
+    public void setLogoProyecto(int logoProyecto) {
+        this.logoProyecto = logoProyecto;
     }
 
     public String getName() {
