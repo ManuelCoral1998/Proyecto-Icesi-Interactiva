@@ -19,12 +19,9 @@
             android:textColor="@color/colorAccent"
             android:background="@color/colorPrimary"
             android:textSize="30dp"
-            android:id="@+id/welcome" />
+            android:id="@+id/tv_welcome"
+            />
     </LinearLayout>
-
-
-
-
 
     <TextView
         android:layout_width="match_parent"
