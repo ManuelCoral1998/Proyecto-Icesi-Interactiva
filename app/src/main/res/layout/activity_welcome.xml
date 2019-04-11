@@ -35,23 +35,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_instrucciones"
-            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre ingeniería telemática y sus usos"
+            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre ingeniería telemática y sus usos.
+Por lo tanto, esta aplicación contiene todos los proyectos presentes el día de hoy; la idea es que respondas unas seríes de preguntas por cada proyecto.
+Entonces lo que debes de hacer es escoger el proyecto que quieras escuchar, estar atento a la charla y al finalizar se te mostrará un código QR que te permitirá acceder a las preguntas del proyecto.
+De esta misma forma debes hacer los demas prpoyectos presentes en Ingeniería Telemática."
             android:layout_gravity="center_horizontal"
             android:textSize="25dp"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_instrucciones"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:hint="comencemos"
+            android:background="@drawable/bordesredondeados"
             />
 
     </ScrollView>
 
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scroll"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:hint="comencemos"
-        android:background="@drawable/bordesredondeados"
-        />
 
 
 
