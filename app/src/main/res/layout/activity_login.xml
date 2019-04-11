@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
-        android:background="@drawable/iconosTele1">
+        android:background="@drawable/iconos_tele1">
 
         <EditText
             android:id="@+id/et_signup_nombre"
