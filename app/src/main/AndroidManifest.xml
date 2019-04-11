@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".Login" />
         <activity android:name=".Welcome" />
-        <activity android:name=".ProjectList"></activity>
+        <activity android:name=".ProjectList" />
+        <activity android:name=".Question"></activity>
     </application>
 
 </manifest>
