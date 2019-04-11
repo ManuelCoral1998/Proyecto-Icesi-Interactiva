@@ -4,13 +4,17 @@ public class Invitado {
 
     private String email;
     private String nickname;
+    private boolean aceptaInfo;
+    private int puntaje;
 
     public Invitado() {
     }
 
-    public Invitado(String email, String nickname) {
+    public Invitado(String nickname, String email, boolean aceptaInfo) {
         this.email = email;
         this.nickname = nickname;
+        this.aceptaInfo = aceptaInfo;
+        puntaje = 0;
     }
 
     public String getEmail() {
@@ -27,5 +31,21 @@ public class Invitado {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public boolean getAceptaInfo() {
+        return aceptaInfo;
+    }
+
+    public void setAceptaInfo(boolean aceptaInfo) {
+        this.aceptaInfo = aceptaInfo;
+    }
+
+    public int getPuntaje() {
+        return puntaje;
+    }
+
+    public void setPuntaje(int puntaje) {
+        this.puntaje = puntaje;
     }
 }

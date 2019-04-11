@@ -46,7 +46,6 @@
             android:gravity="center"
             android:textColorHint="@color/colorAccent"
             android:background="@drawable/bordes_textfile"
-
             />
 
         <CheckBox
@@ -74,8 +73,8 @@ la carrera a su correo"
             android:background="@drawable/bordes_textfile"
             android:textColor="@color/colorAccent"
             android:textSize="20dp"
-
             />
+
     </RelativeLayout>
 
 
