@@ -13,6 +13,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="60dp"
+        android:background="#198498"
         android:src="@drawable/imagen" />
 
     <RelativeLayout
