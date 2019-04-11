@@ -2,11 +2,14 @@ package com.alejandra.icesiinteractiva;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.PointerIcon;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
+import com.alejandra.icesiinteractiva.model.Invitado;
 import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.util.ArrayList;
@@ -46,9 +49,18 @@ public class ProjectList extends AppCompatActivity {
 
 
     private ArrayList<Proyecto> generarArrayList () {
-        ArrayList<Proyecto> lista = db.traerDatosProyectos();
 
-        return lista;
+        Invitado temp = new Invitado("a", "b", true);
+
+        db.crearInvitadoSQL(temp);
+
+        while (!db.isBanderaSQL()) {
+            db.traerDatosProyectos();
+        }
+
+        ArrayList<Proyecto> proyectos = db.darProyectos();
+
+        return proyectos;
     }
 
 }

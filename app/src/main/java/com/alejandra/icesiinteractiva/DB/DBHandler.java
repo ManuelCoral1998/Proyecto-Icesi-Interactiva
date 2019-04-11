@@ -18,10 +18,12 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
     private static DBHandler instance;
 
+    private boolean banderaSQL;
     public static final String LOGIN = "P09728_1_1";
     public static final String PASS = "JuElt3Ae";
     public static final String URL = "jdbc:mysql://200.3.193.22:3306/" + LOGIN;
     private Connection conn;
+    private ArrayList<Proyecto> proyectos;
 
     @Override
     protected Void doInBackground(String... strings) {
@@ -29,6 +31,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
+            banderaSQL = false;
         } catch (Exception e) {
             Log.d(">>>> DB", "NO PASO" + e.getMessage());
         }
@@ -52,7 +55,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
             @Override
             protected Void doInBackground(String... strings) {
-                String info = "'" + invitado.getNickname() + "'" + "," + "'" + invitado.getEmail() + "'";
+                String info = "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + "1" + "'" + "," + "'" + invitado.getPuntaje() + "'";
                 Statement state;
 
                 try {
@@ -66,34 +69,56 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
         }
         SendData send = new SendData();
-        send.execute((Runnable) invitado);
+        send.execute();
     }
 
-    public ArrayList<Proyecto> traerDatosProyectos() {
-        ArrayList<Proyecto> proyectos = new ArrayList<>();
-        Statement state = null;
-        try {
-            state = conn.createStatement();
+    public void traerDatosProyectos() {
 
-            ResultSet rs = state.executeQuery("Select * from proyecto");
+        class GetData extends AsyncTask<String, Void, Void> {
 
-            while (rs.next()) {
-                String nombre = rs.getString("nombre");
-                String descripcion = rs.getString("descripcion");
-                String materia = rs.getString("materia");
-                String expositores = rs.getString("expositores");
-                int logo = Integer.parseInt(rs.getString("logo"));
-                String palabra_clave = rs.getString("palabra_clave");
+            @Override
+            protected Void doInBackground(String... strings) {
 
-                Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, logo, palabra_clave);
+                proyectos = new ArrayList<>();
+                Statement state;
+                banderaSQL = false;
+                try {
+                    state = conn.createStatement();
+                    ResultSet rs = state.executeQuery("Select * from proyecto");
 
-                proyectos.add(proyecto);
+                    Log.d(">>>RS", rs+"");
+
+                    while (rs.next()) {
+                        String nombre = rs.getString("nombre");
+                        String descripcion = rs.getString("descripcion");
+                        String materia = rs.getString("materia");
+                        String expositores = rs.getString("expositores");
+                        int logo = Integer.parseInt(rs.getString("logo"));
+                        String palabra_clave = rs.getString("palabra_clave");
+
+                        Log.d(">>>" , nombre + " " + descripcion);
+                        Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, logo, palabra_clave);
+
+                        proyectos.add(proyecto);
+                    }
+                    banderaSQL = true;
+                } catch (SQLException e) {
+                    Log.d("ERROR", e.getMessage());
+                    e.printStackTrace();
+                }
+                banderaSQL = false;
+                return null;
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
+        GetData send = new GetData();
+        send.execute();
+    }
 
+    public ArrayList<Proyecto> darProyectos () {
         return proyectos;
     }
 
+    public boolean isBanderaSQL() {
+        return banderaSQL;
+    }
 }

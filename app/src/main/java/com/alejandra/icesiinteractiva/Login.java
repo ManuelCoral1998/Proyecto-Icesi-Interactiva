@@ -15,7 +15,7 @@ import com.alejandra.icesiinteractiva.model.Invitado;
 
 public class Login extends AppCompatActivity {
 
-    private DBHandler conn;
+    DBHandler conn;
 
     private EditText et_signup_name;
     private EditText et_signup_email;
@@ -31,6 +31,8 @@ public class Login extends AppCompatActivity {
         et_signup_email = findViewById(R.id.et_signup_correo);
         cb_acept_info = findViewById(R.id.cb_acept_info);
         btn_signup_ingresar = findViewById(R.id.btn_signup_ingresar);
+
+        conn = DBHandler.getInstance();
 
         btn_signup_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,7 @@ public class Login extends AppCompatActivity {
                     alerta.show();
                 } else {
                     invitado = new Invitado(nombre, correo, check);
+                    conn.crearInvitadoSQL(invitado);
                 }
 
                 if (invitado != null) {
@@ -66,10 +69,6 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
-        conn = DBHandler.getInstance();
-
-
 
     }
 }

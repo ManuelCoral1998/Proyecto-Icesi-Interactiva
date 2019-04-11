@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProjectList"
-    android:orientation="vertical"
-    android:background="#4caf50">
+    android:orientation="vertical">
 
 
     <TextView
@@ -17,7 +16,8 @@
         android:text="¿POR DÓNDE QUERÉS EMPEZAR?"
         android:textSize="40dp"
         android:textColor="#ffff"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        />
 
     <ListView
         android:id="@+id/listView"
