@@ -43,17 +43,18 @@ De esta misma forma debes hacer los demas prpoyectos presentes en Ingeniería Te
             android:textSize="25dp"
             />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/et_instrucciones"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:hint="comencemos"
-            android:background="@drawable/bordesredondeados"
-            />
 
     </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scroll"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:hint="comencemos"
+        android:background="@drawable/bordesredondeados"
+        />
 
 
 
