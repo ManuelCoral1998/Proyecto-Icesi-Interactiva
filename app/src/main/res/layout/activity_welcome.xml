@@ -76,8 +76,4 @@ Lo que debes de hacer es:
         android:background="@drawable/bordesredondeados"
         />
 
-
-
-
-
 </RelativeLayout>
