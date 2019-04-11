@@ -24,8 +24,9 @@
     </LinearLayout>
 
     <TextView
+
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/linear"
         android:text="Instrucciones de uso:"
         android:id="@+id/et_titulo_instrucciones"
@@ -47,29 +48,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_instrucciones"
-            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre que es ingeniería telemática y sus usos.
-Lo que debes de hacer es:
-1. Seleccionar el proyecto que deseas conocer
-2. Escuchar la charla preparada por cada expositor
-3. Escanear el código QR proporcionado en cada proyecto
-4. Responder las preguntas asociadas al proyecto
-5. Repetir los anteriores pasos con cada proyecto presente"
+            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre que es ingeniería telemática y sus usos.\nLo que debes de hacer es:\n\n1. Seleccionar el proyecto que deseas conocer\n2. Escuchar la charla preparada por cada expositor\n3. Escanear el código QR proporcionado en cada proyecto\n4. Responder las preguntas asociadas al proyecto\n5. Repetir los anteriores pasos con cada proyecto presente"
             android:layout_gravity="center_horizontal"
-            android:textSize="25dp"
+            android:textSize="18dp"
             android:textColor="@color/colorAccent"
             android:textStyle="italic"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             />
-
 
     </ScrollView>
 
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_below="@+id/scroll"
         android:layout_centerHorizontal="true"
         android:gravity="center"
+        android:layout_marginTop="20dp"
         android:text="comencemos"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorAccent"
         android:id="@+id/btn_continuar_welcome"
         android:background="@drawable/bordesredondeados"
         />

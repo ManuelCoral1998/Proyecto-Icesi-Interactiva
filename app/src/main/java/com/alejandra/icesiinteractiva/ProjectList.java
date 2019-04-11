@@ -23,6 +23,8 @@ public class ProjectList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_list);
 
+        db = DBHandler.getInstance();
+
         listaProyectos = (ListView) findViewById(R.id.listView);
 
         adaptador = new Adapter(this, generarArrayList());
@@ -30,8 +32,6 @@ public class ProjectList extends AppCompatActivity {
         listaProyectos.setAdapter(adaptador);
 
         listaProyectos.setTextFilterEnabled(true);
-
-        db = DBHandler.getInstance();
 
         listaProyectos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

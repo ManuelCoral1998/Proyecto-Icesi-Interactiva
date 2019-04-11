@@ -19,7 +19,7 @@ public class Welcome extends AppCompatActivity {
 
         tv_welcome = findViewById(R.id.tv_welcome);
 
-        tv_welcome.getBackground().setAlpha(60);
+        tv_welcome.getBackground().setAlpha(79);
 
         btn_continuar_welcome = findViewById(R.id.btn_continuar_welcome);
 
