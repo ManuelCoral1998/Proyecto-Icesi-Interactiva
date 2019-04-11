@@ -4,22 +4,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="#539ead">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/welcome"
+        android:id="@+id/linear"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="310dp"
+            android:layout_height="110dp"
             android:text="¡BIENVENIDOS A ICESI INTERACTIVA!"
             android:gravity="center"
-            android:background="@drawable/welcome"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:textSize="30dp"
             android:id="@+id/welcome" />
+    </LinearLayout>
+
+
 
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_below="@+id/welcome"
+        android:layout_below="@+id/linear"
         android:text="Instrucciones de uso:"
         android:id="@+id/et_titulo_instrucciones"
         android:gravity="center"
@@ -58,7 +68,7 @@ Lo que debes de hacer es:
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:layout_below="@+id/scroll"
         android:layout_centerHorizontal="true"
         android:gravity="center"
