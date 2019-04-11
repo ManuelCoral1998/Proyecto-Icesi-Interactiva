@@ -70,6 +70,7 @@ Lo que debes de hacer es:
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="comencemos"
+        android:id="@+id/btn_continuar_welcome"
         android:background="@drawable/bordesredondeados"
         />
 
