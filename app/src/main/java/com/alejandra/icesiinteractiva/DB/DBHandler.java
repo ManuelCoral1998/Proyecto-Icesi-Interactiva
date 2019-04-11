@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class DBHandler extends AsyncTask<String, Void, Void> {
 
@@ -66,19 +67,26 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         send.execute((Runnable) invitado);
     }
 
-    private String traerDatos() {
-        String datos = "";
+    public ArrayList<String> traerDatosProyectos() {
+        ArrayList<String> datos = new ArrayList<>();
         Statement state = null;
         try {
             state = conn.createStatement();
 
-            ResultSet rs = state.executeQuery("Select * from invitado");
+            ResultSet rs = state.executeQuery("Select * from proyecto");
 
             while (rs.next()) {
-                String nickname = rs.getString("nickname");
-                String email = rs.getString("email");
-                String puntaje = rs.getString("puntaje");
+                String nombre = rs.getString("nombre");
+                String descripcion = rs.getString("descripcion");
+                String materia = rs.getString("materia");
+                String expositores = rs.getString("expositores");
+                String logo = rs.getString("logo");
+                String palabra_clave = rs.getString("palabra_clave");
 
+                String datosPorProyecto = nombre + ";" + descripcion + ";" + materia + ";" + materia + ";" +
+                        expositores + ";" + logo + ";" + palabra_clave;
+
+                datos.add(datosPorProyecto);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -42,8 +42,12 @@ public class ProjectList extends AppCompatActivity {
 
     }
 
+
     private ArrayList<Proyecto> generarArrayList () {
         ArrayList<Proyecto> lista = new ArrayList<>();
+
+        ArrayList<String> listaAux = db.traerDatosProyectos();
+
 
 
         return lista;
