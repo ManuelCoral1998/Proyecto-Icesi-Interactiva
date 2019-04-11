@@ -49,15 +49,6 @@ public class ProjectList extends AppCompatActivity {
 
 
     private ArrayList<Proyecto> generarArrayList () {
-
-        Invitado temp = new Invitado("a", "b", true);
-
-        db.crearInvitadoSQL(temp);
-
-        while (!db.isBanderaSQL()) {
-            db.traerDatosProyectos();
-        }
-
         ArrayList<Proyecto> proyectos = db.darProyectos();
 
         return proyectos;

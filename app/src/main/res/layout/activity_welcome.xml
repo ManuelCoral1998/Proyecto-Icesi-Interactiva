@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#539ead">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,55 +22,65 @@
             />
     </LinearLayout>
 
-    <TextView
-
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/linear"
-        android:text="Instrucciones de uso:"
-        android:id="@+id/et_titulo_instrucciones"
-        android:gravity="center"
-        android:textSize="30dp"
+        android:layout_height="700dp"
         android:background="#539ead"
-        android:textColor="@color/colorAccent"
-
-        />
-
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/et_titulo_instrucciones"
-        android:id="@+id/scroll"
-        android:background="#539ead">
+        android:layout_below="@+id/linear"
+        android:id="@+id/contenedor">
 
         <TextView
+
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_instrucciones"
-            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre que es ingeniería telemática y sus usos.\nLo que debes de hacer es:\n\n1. Seleccionar el proyecto que deseas conocer\n2. Escuchar la charla preparada por cada expositor\n3. Escanear el código QR proporcionado en cada proyecto\n4. Responder las preguntas asociadas al proyecto\n5. Repetir los anteriores pasos con cada proyecto presente"
-            android:layout_gravity="center_horizontal"
-            android:textSize="18dp"
+            android:layout_height="50dp"
+            android:text="Instrucciones de uso:"
+            android:id="@+id/et_titulo_instrucciones"
+            android:gravity="center"
+            android:textSize="30dp"
+            android:background="#539ead"
             android:textColor="@color/colorAccent"
-            android:textStyle="italic"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+
             />
 
-    </ScrollView>
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_titulo_instrucciones"
+            android:id="@+id/scroll"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/et_instrucciones"
+                android:text="1. Seleccionar el proyecto que deseas conocer\n\n2. Escuchar la charla preparada por cada expositor\n\n3. Escanear el código QR proporcionado en cada proyecto\n\n4. Responder las preguntas asociadas al proyecto\n\n5. Repetir los anteriores pasos con cada proyecto presente"
+                android:layout_gravity="center_horizontal"
+                android:textSize="18dp"
+                android:textColor="@color/colorAccent"
+                android:textStyle="italic"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+        </ScrollView>
 
 
-    <Button
-        android:layout_width="130dp"
-        android:layout_height="60dp"
-        android:layout_below="@+id/scroll"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="comencemos"
-        android:layout_marginBottom="10dp"
-        android:textColor="@color/colorAccent"
-        android:id="@+id/btn_continuar_welcome"
-        android:background="@drawable/bordesredondeados"
-        />
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/scroll"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="comencemos"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/btn_continuar_welcome"
+            android:background="@drawable/bordesredondeados"
+            />
+
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

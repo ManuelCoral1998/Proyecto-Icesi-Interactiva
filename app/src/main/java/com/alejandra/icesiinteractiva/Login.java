@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Invitado;
@@ -21,11 +22,15 @@ public class Login extends AppCompatActivity {
     private EditText et_signup_email;
     private CheckBox cb_acept_info;
     private Button btn_signup_ingresar;
+    private RelativeLayout relative;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        relative = findViewById(R.id.relative);
+        relative.getBackground().setAlpha(40);
 
         et_signup_name = findViewById(R.id.et_signup_nombre);
         et_signup_email = findViewById(R.id.et_signup_correo);

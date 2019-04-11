@@ -11,14 +11,15 @@
         android:layout_height="200dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
         android:src="@drawable/imagen" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
+        android:id="@+id/relative"
         android:background="@drawable/iconos_tele1">
 
         <EditText
