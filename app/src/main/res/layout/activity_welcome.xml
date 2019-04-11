@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" >
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#539ead">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:text="¡BIENVENIDOS A ICESI INTERACTIVA!"
-        android:gravity="center"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        android:id="@+id/welcome"
-        />
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:text="¡BIENVENIDOS A ICESI INTERACTIVA!"
+            android:gravity="center"
+            android:background="@drawable/welcome"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30dp"
+            android:id="@+id/welcome" />
+
+
 
     <TextView
         android:layout_width="match_parent"
@@ -22,6 +24,8 @@
         android:id="@+id/et_titulo_instrucciones"
         android:gravity="center"
         android:textSize="30dp"
+        android:background="#539ead"
+        android:textColor="@color/colorAccent"
 
         />
 
@@ -29,18 +33,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_titulo_instrucciones"
-        android:id="@+id/scroll">
+        android:id="@+id/scroll"
+        android:background="#539ead">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/et_instrucciones"
-            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre ingeniería telemática y sus usos.
-Por lo tanto, esta aplicación contiene todos los proyectos presentes el día de hoy; la idea es que respondas unas seríes de preguntas por cada proyecto.
-Entonces lo que debes de hacer es escoger el proyecto que quieras escuchar, estar atento a la charla y al finalizar se te mostrará un código QR que te permitirá acceder a las preguntas del proyecto.
-De esta misma forma debes hacer los demas prpoyectos presentes en Ingeniería Telemática."
+            android:text="Esta aplicación tiene como objetivo poner a prueba los conocimientos que adquieras sobre que es ingeniería telemática y sus usos.
+Lo que debes de hacer es:
+1. Seleccionar el proyecto que deseas conocer
+2. Escuchar la charla preparada por cada expositor
+3. Escanear el código QR proporcionado en cada proyecto
+4. Responder las preguntas asociadas al proyecto
+5. Repetir los anteriores pasos con cada proyecto presente"
             android:layout_gravity="center_horizontal"
             android:textSize="25dp"
+            android:textColor="@color/colorAccent"
+            android:textStyle="italic"
             />
 
 
@@ -52,7 +62,7 @@ De esta misma forma debes hacer los demas prpoyectos presentes en Ingeniería Te
         android:layout_below="@+id/scroll"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:hint="comencemos"
+        android:text="comencemos"
         android:background="@drawable/bordesredondeados"
         />
 
