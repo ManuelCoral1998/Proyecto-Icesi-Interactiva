@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/colorSubAccent"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <LinearLayout
@@ -16,7 +16,7 @@
             android:layout_height="80dp"
             android:text="¡EMPECEMOS!"
             android:gravity="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/colorSubAccent"
             android:background="@color/colorPrimary"
             android:textSize="30dp"
             android:id="@+id/empecemos" />
@@ -105,7 +105,7 @@
         android:layout_height="wrap_content"
         android:text="Enviar"
         android:background="@drawable/bordes_textfile"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorSubAccent"
         android:layout_below="@+id/radio_pregunta2"
         android:layout_marginTop="30dp"
         android:layout_alignParentRight="true"

@@ -52,9 +52,9 @@ public class Login extends AppCompatActivity {
                 if (nombre.equals("") || correo.equals("")) {
 
                     AlertDialog.Builder alerta = new AlertDialog.Builder(Login.this);
-                    alerta.setTitle("Alerta");
-                    alerta.setMessage("Por favor ingresa todos los campos");
-                    alerta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    alerta.setTitle("¡Futuro Ingeniero Telematico!");
+                    alerta.setMessage("Es necesario que ingreses todos los campos");
+                    alerta.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
