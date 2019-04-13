@@ -1,14 +1,10 @@
 package com.alejandra.icesiinteractiva.DB;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.alejandra.icesiinteractiva.model.Invitado;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;
-
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

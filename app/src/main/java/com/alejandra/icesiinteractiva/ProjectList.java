@@ -3,8 +3,6 @@ package com.alejandra.icesiinteractiva;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.PointerIcon;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -12,7 +10,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
-import com.alejandra.icesiinteractiva.model.Invitado;
 import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.util.ArrayList;
