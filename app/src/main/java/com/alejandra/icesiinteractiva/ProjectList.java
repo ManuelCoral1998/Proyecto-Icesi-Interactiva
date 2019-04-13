@@ -51,8 +51,10 @@ public class ProjectList extends AppCompatActivity {
         listaProyectos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Proyecto aVisitar = (Proyecto) parent.getItemAtPosition(position);
+
+
+
 
             }
         });
@@ -62,7 +64,6 @@ public class ProjectList extends AppCompatActivity {
 
     private ArrayList<Proyecto> generarArrayList () {
         ArrayList<Proyecto> proyectos = db.darProyectos();
-
         return proyectos;
     }
 

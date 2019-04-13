@@ -18,7 +18,6 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
     private static DBHandler instance;
 
-    private boolean banderaSQL;
     public static final String LOGIN = "P09728_1_1";
     public static final String PASS = "JuElt3Ae";
     public static final String URL = "jdbc:mysql://200.3.193.22:3306/" + LOGIN;
@@ -96,7 +95,6 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
                 proyectos.add(proyecto);
             }
-            banderaSQL = true;
         } catch (SQLException e) {
             Log.d("ERROR", e.getMessage());
             e.printStackTrace();
@@ -106,9 +104,5 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
     public ArrayList<Proyecto> darProyectos () {
         return proyectos;
-    }
-
-    public boolean isBanderaSQL() {
-        return banderaSQL;
     }
 }

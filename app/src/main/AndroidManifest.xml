@@ -22,7 +22,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Welcome" />
         <activity android:name=".ProjectList" />
-        <activity android:name=".Question"></activity>
+        <activity android:name=".Question" />
+        <activity android:name=".ScanQR"></activity>
     </application>
 
 </manifest>
