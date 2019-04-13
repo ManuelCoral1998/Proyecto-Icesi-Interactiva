@@ -25,10 +25,13 @@
         <activity android:name=".Welcome" />
         <activity android:name=".ProjectList" />
         <activity android:name=".Question" />
-        <activity android:name=".ScanQR"></activity>
+        <activity android:name=".ScanQR" />
 
-        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="barcode"/>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
 
+        <activity android:name=".DescriptionProject"></activity>
     </application>
 
 </manifest>

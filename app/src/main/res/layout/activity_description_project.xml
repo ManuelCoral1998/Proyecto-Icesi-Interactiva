@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@drawable/welcome"
+        android:id="@+id/linear_proyecto"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="80dp"
+            android:text="Nombre del proyecto"
+            android:gravity="center"
+            android:textColor="@color/colorSubAccent"
+            android:background="@color/colorPrimary"
+            android:textSize="30dp"
+            android:id="@+id/nombre_proyecto" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:id="@+id/relative_descripcion"
+        android:layout_below="@+id/linear_proyecto"
+        android:background="@color/colorSubAccent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Descipcion de proyecto"
+            android:textSize="20dp"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:textStyle="italic"
+            android:gravity="center"/>
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative_descripcion"
+        android:background="@color/colorSubAccent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Ya estás listo para responder preguntas sobre el proyecto?\n\nEscanea el código QR"
+            android:textSize="27dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/tv_escanerQR"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_escanerQR"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:text="Escanear"
+            android:background="@drawable/bordes_textfile"
+            android:textColor="@color/colorSubAccent"
+            android:layout_marginRight="15dp"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
