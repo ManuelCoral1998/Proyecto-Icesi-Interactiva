@@ -1,45 +1,91 @@
 package com.alejandra.icesiinteractiva;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.annotation.Nullable;
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.util.SparseArray;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+
+import com.google.android.gms.vision.CameraSource;
+import com.google.android.gms.vision.Detector;
+import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.barcode.BarcodeDetector;
+
+import java.io.IOException;
 
 public class ScanQR extends AppCompatActivity {
+
+
+    SurfaceView camara;
+    BarcodeDetector barcodeDetector;
+    CameraSource cameraSource;
+    int requestCamaraPermissionID = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_qr);
 
-        try {
+        camara = findViewById(R.id.camarePreview);
 
-            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-            intent.putExtra("SCAN_MODE", "QR_CODE_MODE"); // "PRODUCT_MODE for bar codes
+        barcodeDetector = new BarcodeDetector.Builder(this)
+        .setBarcodeFormats(Barcode.QR_CODE)
+        .build();
 
-            startActivityForResult(intent, 0);
+        cameraSource = new CameraSource.Builder(this, barcodeDetector)
+                .setRequestedPreviewSize(640, 640)
+                .build();
 
-        } catch (Exception e) {
+        camara.getHolder().addCallback(new SurfaceHolder.Callback() {
+            @SuppressLint("MissingPermission")
+            @Override
+            public void surfaceCreated(SurfaceHolder holder) {
 
-            Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
-            Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
-            startActivity(marketIntent);
+                try {
+                    cameraSource.start(camara.getHolder());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
-        }
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == 0) {
-
-            if (resultCode == RESULT_OK) {
-                String contents = data.getStringExtra("SCAN_RESULT");
             }
-        }
 
+            @Override
+            public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
+            }
+
+            @Override
+            public void surfaceDestroyed(SurfaceHolder holder) {
+
+            }
+        });
+
+        barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
+            @Override
+            public void release() {
+
+            }
+
+            @Override
+            public void receiveDetections(Detector.Detections<Barcode> detections) {
+                SparseArray<Barcode> grcore = detections.getDetectedItems();
+
+                if (grcore.size() > 0) {
+                    Log.d("QR", grcore.valueAt(0).displayValue);
+                    Intent intent = new Intent(ScanQR.this, ProjectList.class);
+                    startActivity(intent);
+                    barcodeDetector.release();
+                    finish();
+                    cameraSource.stop();
+                }
+            }
+        });
     }
+
 }
