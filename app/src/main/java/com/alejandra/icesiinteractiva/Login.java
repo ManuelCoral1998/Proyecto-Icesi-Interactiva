@@ -20,6 +20,7 @@ import com.alejandra.icesiinteractiva.model.Invitado;
 public class Login extends AppCompatActivity {
 
     DBHandler conn;
+    private static final int requestCamaraPermissionID = 1001;
 
     private EditText et_signup_name;
     private EditText et_signup_email;
@@ -35,7 +36,7 @@ public class Login extends AppCompatActivity {
         if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(Login.this,
-                    new String[]{Manifest.permission.CAMERA}, 1001);
+                    new String[]{Manifest.permission.CAMERA}, requestCamaraPermissionID);
             return;
         }
 

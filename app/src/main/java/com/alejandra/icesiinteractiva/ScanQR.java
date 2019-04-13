@@ -1,10 +1,7 @@
 package com.alejandra.icesiinteractiva;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,10 +19,9 @@ import java.io.IOException;
 public class ScanQR extends AppCompatActivity {
 
 
-    SurfaceView camara;
-    BarcodeDetector barcodeDetector;
-    CameraSource cameraSource;
-    int requestCamaraPermissionID = 1001;
+    private SurfaceView camara;
+    private BarcodeDetector barcodeDetector;
+    private CameraSource cameraSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +74,7 @@ public class ScanQR extends AppCompatActivity {
 
                 if (grcore.size() > 0) {
                     Log.d("QR", grcore.valueAt(0).displayValue);
-                    Intent intent = new Intent(ScanQR.this, ProjectList.class);
+                    Intent intent = new Intent(ScanQR.this, Question.class);
                     startActivity(intent);
                     barcodeDetector.release();
                     finish();
