@@ -28,19 +28,23 @@
         android:layout_below="@+id/linear_proyecto"
         android:background="@color/colorSubAccent">
 
-        <TextView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Descipcion de proyecto"
-            android:textSize="20dp"
-            android:textColor="@color/colorAccent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginTop="15dp"
-            android:textStyle="italic"
-            android:gravity="center"/>
+            android:layout_height="match_parent">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Descipcion de proyecto"
+                android:textSize="20dp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:textStyle="italic"
+                android:gravity="center"/>
 
+        </ScrollView>
 
     </RelativeLayout>
 
@@ -54,9 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="¿Ya estás listo para responder preguntas sobre el proyecto?\n\nEscanea el código QR"
-            android:textSize="27dp"
+            android:textSize="26dp"
             android:textColor="@color/colorPrimary"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="29dp"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="15dp"
             android:id="@+id/tv_escanerQR"/>
@@ -72,17 +76,6 @@
             android:textColor="@color/colorSubAccent"
             android:layout_marginRight="15dp"/>
 
-
-
-
     </RelativeLayout>
-
-
-
-
-
-
-
-
 
 </RelativeLayout>
