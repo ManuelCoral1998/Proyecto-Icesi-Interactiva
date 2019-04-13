@@ -41,23 +41,27 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 1"
             android:id="@+id/opcion1p1"
             android:layout_marginLeft="10dp"/>
 
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 2"
             android:id="@+id/opcion2p1"
             android:layout_marginLeft="10dp"/>
 
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 3"
             android:id="@+id/opcion3p1"
             android:layout_marginLeft="10dp"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/opcion4p1"
+            android:layout_marginLeft="10dp"/>
+
 
     </RadioGroup>
 
@@ -66,13 +70,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/radio_pregunta1"
         android:id="@+id/radio_pregunta2"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pregunta 1"
+            android:text="Pregunta 2"
             android:id="@+id/pregunta2"
             android:textSize="20dp"
             android:layout_marginLeft="10dp"/>
@@ -80,22 +84,25 @@
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 1"
             android:id="@+id/opcion1p2"
             android:layout_marginLeft="10dp"/>
 
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 2"
             android:id="@+id/opcion2p2"
             android:layout_marginLeft="10dp"/>
 
         <RadioButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Opción 3"
             android:id="@+id/opcion3p2"
+            android:layout_marginLeft="10dp"/>
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/opcion4p2"
             android:layout_marginLeft="10dp"/>
 
     </RadioGroup>
@@ -104,12 +111,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enviar"
+        android:id="@+id/btn_enviar_respuesta"
         android:background="@drawable/bordes_textfile"
         android:textColor="@color/colorSubAccent"
         android:layout_below="@+id/radio_pregunta2"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="12dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="18dp"
         />
 
 </RelativeLayout>
