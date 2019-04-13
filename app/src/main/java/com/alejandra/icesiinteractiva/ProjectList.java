@@ -1,5 +1,6 @@
 package com.alejandra.icesiinteractiva;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -53,8 +54,8 @@ public class ProjectList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Proyecto aVisitar = (Proyecto) parent.getItemAtPosition(position);
 
-
-
+                Intent i = new Intent(ProjectList.this, ScanQR.class);
+                startActivity(i);
 
             }
         });

@@ -3,46 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProjectList"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ProjectList">
 
 
     <LinearLayout
+        android:id="@+id/linear_proyectos"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:background="@drawable/welcome"
-        android:id="@+id/linear_proyectos"
         android:gravity="center">
 
         <TextView
+            android:id="@+id/tv_proyectos"
             android:layout_width="320dp"
             android:layout_height="110dp"
-            android:text="¿POR DONDÉ QUIERES COMENZAR?"
-            android:gravity="center"
-            android:textColor="@color/colorSubAccent"
             android:background="@color/colorPrimary"
-            android:textSize="30dp"
-            android:id="@+id/tv_proyectos"
-            />
+            android:gravity="center"
+            android:text="¿POR DONDÉ QUIERES COMENZAR?"
+            android:textColor="@color/colorSubAccent"
+            android:textSize="30dp" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@color/colorSubAccent">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorSubAccent">
-
-        </ListView>
-
-    </LinearLayout>
-
-
-
+    </ListView>
 
 
 </LinearLayout>
