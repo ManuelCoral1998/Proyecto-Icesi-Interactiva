@@ -5,8 +5,10 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import com.alejandra.icesiinteractiva.model.Invitado;
+import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -102,7 +104,53 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
     }
 
+    public void traerPreguntas (final String nombreProyecto) {
+        final ArrayList<Pregunta> preguntas = new ArrayList<>();
+        class BringQuestion extends AsyncTask<String, Void, Void> {
+
+            @Override
+            protected Void doInBackground(String... strings) {
+
+                Statement state;
+
+                try {
+                    state = conn.createStatement();
+
+                    ResultSet rs = state.executeQuery("SELECT * FROM `pregunta` Pe, `proyecto` Pr WHERE Pe.nombreProyecto = '" + nombreProyecto + "' AND Pe.nombreProyecto = Pr.nombre");
+
+                    while (rs.next()){
+                        String nombreProyecto = rs.getString("nombreProyecto");
+                        String pregunta = rs.getString("pregunta");
+                        String opciones = rs.getString("opciones");
+                        String opcionCorrecta = rs.getString("opcionCorrecta");
+
+                        Pregunta question = new Pregunta(pregunta, opciones.split(";"), opcionCorrecta);
+
+                        preguntas.add(question);
+                    }
+                    finishQuestion.onFinishQuestion(preguntas);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        BringQuestion send = new BringQuestion();
+        send.execute();
+    }
+
     public ArrayList<Proyecto> darProyectos () {
         return proyectos;
     }
+
+    public interface OnFinishQuestion {
+        void onFinishQuestion(ArrayList<Pregunta> preguntas);
+    }
+
+    private OnFinishQuestion finishQuestion;
+
+    public void setOnFinishQuestion (OnFinishQuestion finishQuestion) {
+        this.finishQuestion = finishQuestion;
+    }
+
 }

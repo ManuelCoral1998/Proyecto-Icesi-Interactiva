@@ -100,6 +100,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="10dp"
             android:text="Escanear"
+            android:id="@+id/btn_escanear_qr"
             android:background="@drawable/bordes_textfile"
             android:textColor="@color/colorSubAccent"
             android:layout_marginRight="15dp"/>

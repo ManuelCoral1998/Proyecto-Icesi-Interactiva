@@ -9,19 +9,23 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+import com.alejandra.icesiinteractiva.DB.DBHandler;
+import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class ScanQR extends AppCompatActivity {
+public class ScanQR extends AppCompatActivity implements DBHandler.OnFinishQuestion {
 
 
     private SurfaceView camara;
     private BarcodeDetector barcodeDetector;
     private CameraSource cameraSource;
+    DBHandler dbHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,9 @@ public class ScanQR extends AppCompatActivity {
         setContentView(R.layout.activity_scan_qr);
 
         camara = findViewById(R.id.camarePreview);
+
+        dbHandler = DBHandler.getInstance();
+        dbHandler.setOnFinishQuestion(this);
 
         barcodeDetector = new BarcodeDetector.Builder(this)
         .setBarcodeFormats(Barcode.QR_CODE)
@@ -74,14 +81,26 @@ public class ScanQR extends AppCompatActivity {
 
                 if (grcore.size() > 0) {
                     Log.d("QR", grcore.valueAt(0).displayValue);
-                    Intent intent = new Intent(ScanQR.this, Question.class);
-                    startActivity(intent);
+
+                    String proyectoQr = grcore.valueAt(0).displayValue;
+
+                    dbHandler.traerPreguntas(proyectoQr);
                     barcodeDetector.release();
                     finish();
                     cameraSource.stop();
+
                 }
             }
         });
     }
 
+    @Override
+    public void onFinishQuestion(ArrayList<Pregunta> preguntas) {
+        Intent intent = new Intent(ScanQR.this, Question.class);
+        intent.putExtra("Preguntas", preguntas);
+        startActivity(intent);
+        //barcodeDetector.release();
+        //finish();
+        //cameraSource.stop();
+    }
 }

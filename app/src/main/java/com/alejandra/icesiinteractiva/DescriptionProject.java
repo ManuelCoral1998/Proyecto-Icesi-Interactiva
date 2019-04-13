@@ -1,7 +1,10 @@
 package com.alejandra.icesiinteractiva;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,6 +18,8 @@ public class DescriptionProject extends AppCompatActivity {
     private TextView tv_descripcion_proyecto;
     private TextView tv_nombre_expositores;
     private Proyecto visitando;
+
+    private Button btn_escanear_qr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,16 @@ public class DescriptionProject extends AppCompatActivity {
         tv_nombre_expositores.setText("Expositor\n" + visitando.getExhibitors());
         tv_descripcion_proyecto.setText(visitando.getDescription());
         nombre_proyecto.setText(visitando.getName());
+
+        btn_escanear_qr = findViewById(R.id.btn_escanear_qr);
+
+        btn_escanear_qr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DescriptionProject.this, ScanQR.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

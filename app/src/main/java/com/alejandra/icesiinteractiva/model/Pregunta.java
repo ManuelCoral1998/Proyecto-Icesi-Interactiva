@@ -1,6 +1,8 @@
 package com.alejandra.icesiinteractiva.model;
 
-public class Pregunta {
+import java.io.Serializable;
+
+public class Pregunta implements Serializable {
 
     private String pregunta;
     private String[] opciones;
