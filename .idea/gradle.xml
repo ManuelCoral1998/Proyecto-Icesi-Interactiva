@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/android-core-3.3.0" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/mysql-connector-java-5.1.13-bin" />
           </set>
