@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/welcome"
-        android:id="@+id/linear_proyecto"
+        android:id="@+id/linear_proyecto_activity_descripcion"
         android:gravity="center">
 
         <TextView
@@ -18,31 +18,58 @@
             android:textColor="@color/colorSubAccent"
             android:background="@color/colorPrimary"
             android:textSize="30dp"
-            android:id="@+id/nombre_proyecto" />
+            android:id="@+id/nombre_proyecto_actividad_descripcion" />
+
     </LinearLayout>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
         android:id="@+id/relative_descripcion"
-        android:layout_below="@+id/linear_proyecto"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_below="@+id/linear_proyecto_activity_descripcion"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
         android:background="@color/colorSubAccent">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            >
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Descipcion de proyecto"
-                android:textSize="20dp"
-                android:textColor="@color/colorAccent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="15dp"
-                android:textStyle="italic"
-                android:gravity="center"/>
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="QUI"
+                    android:id="@+id/nombre_expositores_proyecto"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    android:layout_gravity="center"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_descripcion_proyecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:gravity="center"
+                    android:text="Descipcion de proyecto"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="20dp"
+                    android:textStyle="italic"
+                    />
+            </LinearLayout>
 
         </ScrollView>
 
@@ -52,13 +79,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/relative_descripcion"
-        android:background="@color/colorSubAccent">
+        android:background="@color/colorSubAccent"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="¿Ya estás listo para responder preguntas sobre el proyecto?\n\nEscanea el código QR"
-            android:textSize="26dp"
+            android:textSize="22dp"
             android:textColor="@color/colorPrimary"
             android:layout_marginTop="29dp"
             android:layout_marginRight="15dp"

@@ -54,7 +54,8 @@ public class ProjectList extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Proyecto aVisitar = (Proyecto) parent.getItemAtPosition(position);
 
-                Intent i = new Intent(ProjectList.this, ScanQR.class);
+                Intent i = new Intent(ProjectList.this, DescriptionProject.class);
+                i.putExtra("Proyecto", aVisitar);
                 startActivity(i);
 
             }

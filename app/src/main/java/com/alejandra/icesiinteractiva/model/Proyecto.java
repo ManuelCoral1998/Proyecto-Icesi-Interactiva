@@ -1,6 +1,8 @@
 package com.alejandra.icesiinteractiva.model;
 
-public class Proyecto {
+import java.io.Serializable;
+
+public class Proyecto implements Serializable {
 
     private String name;
     private String description;
