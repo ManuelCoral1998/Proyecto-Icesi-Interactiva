@@ -87,11 +87,11 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 String descripcion = rs.getString("descripcion");
                 String materia = rs.getString("materia");
                 String expositores = rs.getString("expositores");
-                int logo = Integer.parseInt(rs.getString("logo"));
+                //int logo = Integer.parseInt(rs.getString("logo"));
                 String palabra_clave = rs.getString("palabra_clave");
 
                 Log.d(">>>", nombre + " " + descripcion);
-                Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, logo, palabra_clave);
+                Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, 0, palabra_clave);
 
                 proyectos.add(proyecto);
             }

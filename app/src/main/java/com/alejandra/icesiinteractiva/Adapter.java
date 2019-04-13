@@ -48,7 +48,7 @@ public class Adapter extends BaseAdapter {
 
         //logo.setImageResource(proyecto.getLogoProyecto());
         nombre_proyecto.setText(proyecto.getName());
-        palabras_claves_proyecto.setText(proyecto.getPalabrasClaves());
+        palabras_claves_proyecto.setText(proyecto.getSubject());
 
         return convertView;
     }

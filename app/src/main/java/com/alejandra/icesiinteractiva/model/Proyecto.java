@@ -9,6 +9,8 @@ public class Proyecto {
     private int logoProyecto;
     private String palabrasClaves;
 
+    private Pregunta[] preguntas;
+
     public Proyecto() {
     }
 
@@ -19,6 +21,7 @@ public class Proyecto {
         this.exhibitors = exhibitors;
         this.logoProyecto = logoProyecto;
         this.palabrasClaves = palabrasClaves;
+        preguntas = new Pregunta[2];
     }
 
     public String getPalabrasClaves () {
