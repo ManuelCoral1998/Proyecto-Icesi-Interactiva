@@ -37,8 +37,8 @@ public class Login extends AppCompatActivity {
 
             ActivityCompat.requestPermissions(Login.this,
                     new String[]{Manifest.permission.CAMERA}, requestCamaraPermissionID);
-            return;
         }
+
 
         relative = findViewById(R.id.relative);
         relative.getBackground().setAlpha(40);
