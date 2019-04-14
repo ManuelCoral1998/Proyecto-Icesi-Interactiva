@@ -23,6 +23,7 @@ public class DescriptionProject extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_description_project);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
         nombre_proyecto = findViewById(R.id.nombre_proyecto_actividad_descripcion);
         nombre_proyecto.getBackground().setAlpha(89);

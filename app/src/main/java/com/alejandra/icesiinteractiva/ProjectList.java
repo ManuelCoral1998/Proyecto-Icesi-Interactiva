@@ -28,6 +28,8 @@ public class ProjectList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_project_list);
 
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+
         db = DBHandler.getInstance();
 
         listaProyectos = (ListView) findViewById(R.id.listView);

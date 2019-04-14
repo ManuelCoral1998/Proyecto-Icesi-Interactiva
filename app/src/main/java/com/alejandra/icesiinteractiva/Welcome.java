@@ -21,6 +21,8 @@ public class Welcome extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
+        overridePendingTransition(R.anim.slide_up, R.anim.slide_off);
+
         linear = findViewById(R.id.linear);
 
         linear.getBackground().setAlpha(48);
