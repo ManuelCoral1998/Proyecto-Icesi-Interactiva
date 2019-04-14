@@ -1,5 +1,8 @@
 package com.alejandra.icesiinteractiva;
 
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 
 import java.util.ArrayList;
@@ -24,11 +28,12 @@ public class Question extends AppCompatActivity {
 
     private Button enviar;
 
+    DBHandler dbHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
-
 
         linear_preguntas = findViewById(R.id.linear_preguntas);
         linear_preguntas.getBackground().setAlpha(48);
@@ -40,6 +45,7 @@ public class Question extends AppCompatActivity {
         radioGroup2 = findViewById(R.id.radio_pregunta2);
         Log.d("TAMAÑO", radioGroup1.getChildCount()+"");
 
+        dbHandler = DBHandler.getInstance();
 
         preguntas = (ArrayList<Pregunta>) getIntent().getSerializableExtra("Preguntas");
 
@@ -65,11 +71,35 @@ public class Question extends AppCompatActivity {
                 boolean p1 = comprobarPregunta1();
                 boolean p2 = comprobarPregunta2();
 
+                int puntos = 0;
 
+                if (p1 && p2) {
+                    puntos = 10;
+                    dbHandler.actualizarPuntaje("coral", puntos);
+                } else if (p1 || p2) {
+                    puntos = 5;
+                    dbHandler.actualizarPuntaje("coral", puntos);
+                }
+                mostrarPuntaje(puntos);
+            }
+        });
+    }
 
+    public void mostrarPuntaje (int puntos) {
+
+        final AlertDialog.Builder dialogoPuntos = new AlertDialog.Builder(Question.this);
+        dialogoPuntos.setTitle("PUNTACOS");
+        dialogoPuntos.setMessage("Gracias por responder, los puntos que ganaste fueron: " + puntos);
+        dialogoPuntos.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Question.this, ProjectList.class);
+                startActivity(intent);
+                finish();
             }
         });
 
+        dialogoPuntos.show();
     }
 
     public boolean comprobarPregunta1 () {

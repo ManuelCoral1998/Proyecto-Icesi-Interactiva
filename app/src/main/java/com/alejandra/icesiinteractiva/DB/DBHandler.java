@@ -131,14 +131,37 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 return null;
             }
         }
-        BringQuestion send = new BringQuestion();
-        send.execute();
+        BringQuestion bring = new BringQuestion();
+        bring.execute();
+    }
+
+    public void actualizarPuntaje (final String correo, final int puntaje) {
+
+        class UpdateData extends AsyncTask<String, Void, Void> {
+
+            @Override
+            protected Void doInBackground(String... strings) {
+                Statement state;
+                try {
+                    state = conn.createStatement();
+                    Log.d("Acutaliar" , correo);
+                    state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ "+puntaje+" WHERE correo = '"+ correo + "'");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        }
+        UpdateData update = new UpdateData();
+        update.execute();
     }
 
     public ArrayList<Proyecto> darProyectos () {
         return proyectos;
     }
 
+    //OBSERVER CODIGO QR
     public interface OnFinishQuestion {
         void onFinishQuestion(ArrayList<Pregunta> preguntas);
     }
