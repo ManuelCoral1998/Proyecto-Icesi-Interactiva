@@ -53,7 +53,10 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
             @Override
             protected Void doInBackground(String... strings) {
-                String info = "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + "1" + "'" + "," + "'" + invitado.getPuntaje() + "'";
+
+                int check = invitado.getAceptaInfo() ? 1: 0;
+
+                String info = "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + check + "'" + "," + "'" + invitado.getPuntaje() + "'";
                 Statement state;
 
                 try {

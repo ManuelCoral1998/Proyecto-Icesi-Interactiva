@@ -4,18 +4,27 @@ import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Invitado;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.ActionCodeSettings;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
 
@@ -29,6 +38,8 @@ public class Login extends AppCompatActivity {
     private RelativeLayout relative;
     private RelativeLayout relative_imagen;
 
+    FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +51,7 @@ public class Login extends AppCompatActivity {
                     new String[]{Manifest.permission.CAMERA}, requestCamaraPermissionID);
         }
 
+        auth = FirebaseAuth.getInstance();
 
         relative = findViewById(R.id.relative);
         relative.getBackground().setAlpha(40);
@@ -54,6 +66,25 @@ public class Login extends AppCompatActivity {
 
         conn = DBHandler.getInstance();
 
+        if (auth.getCurrentUser() != null) {
+            Intent i = new Intent(this, Welcome.class);
+            startActivity(i);
+            finish();
+        }
+
+        final ActionCodeSettings actionCodeSettings =
+                ActionCodeSettings.newBuilder()
+                        // URL you want to redirect back to. The domain (www.example.com) for this
+                        // URL must be whitelisted in the Firebase Console.
+                        .setUrl("https://icesi-interactiva.firebaseapp.com")
+                        // This must be true
+                        .setHandleCodeInApp(true)
+                        .setAndroidPackageName(
+                                "com.alejandra.icesiinteractiva",
+                                true, /* installIfNotAvailable */
+                                "12"    /* minimumVersion */)
+                        .build();
+
         btn_signup_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,6 +92,17 @@ public class Login extends AppCompatActivity {
                 String nombre = et_signup_name.getText().toString();
                 String correo = et_signup_email.getText().toString();
                 boolean check = cb_acept_info.isChecked();
+
+                auth.createUserWithEmailAndPassword(correo, nombre);
+
+//                auth.sendSignInLinkToEmail(correo, actionCodeSettings).addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(Login.this, "ENVIADO", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
 
                 Invitado invitado = null;
 

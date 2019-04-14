@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 28
@@ -27,5 +28,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':mysql-connector-java-5.1.13-bin')
     implementation 'com.google.android.gms:play-services-vision:15.0.2'
-
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
 }

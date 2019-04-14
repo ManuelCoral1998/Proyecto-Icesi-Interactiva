@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "20184979887",
+    "firebase_url": "https://icesi-interactiva.firebaseio.com",
+    "project_id": "icesi-interactiva",
+    "storage_bucket": "icesi-interactiva.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:20184979887:android:e27eae254e4fd960",
+        "android_client_info": {
+          "package_name": "com.alejandra.icesiinteractiva"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "20184979887-313pc36uu2sfqt2lq74934kdg9vakvbp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alejandra.icesiinteractiva",
+            "certificate_hash": "e6b2e3171aea95ec5c18560299dba83ff588b3fd"
+          }
+        },
+        {
+          "client_id": "20184979887-ivcieg1v8r01h8sjgjcmors29pn0v6a9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_u3N12Ku1HFOVrqeQki5zTpfd6-XHFI0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "20184979887-ivcieg1v8r01h8sjgjcmors29pn0v6a9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
