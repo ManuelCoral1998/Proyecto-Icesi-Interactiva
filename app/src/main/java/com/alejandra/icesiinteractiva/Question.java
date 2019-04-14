@@ -88,8 +88,8 @@ public class Question extends AppCompatActivity {
     public void mostrarPuntaje (int puntos) {
 
         final AlertDialog.Builder dialogoPuntos = new AlertDialog.Builder(Question.this);
-        dialogoPuntos.setTitle("PUNTACOS");
-        dialogoPuntos.setMessage("Gracias por responder, los puntos que ganaste fueron: " + puntos);
+        dialogoPuntos.setTitle("¡Gracias por participar!");
+        dialogoPuntos.setMessage("Los puntos que ganaste por responder son: " + puntos);
         dialogoPuntos.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -101,6 +101,7 @@ public class Question extends AppCompatActivity {
 
         dialogoPuntos.show();
     }
+
 
     public boolean comprobarPregunta1 () {
         boolean correcto = false;

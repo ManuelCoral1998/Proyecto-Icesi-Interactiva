@@ -43,45 +43,48 @@
             />
 
         <ScrollView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_below="@+id/et_titulo_instrucciones"
             android:id="@+id/scroll"
             >
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/et_instrucciones"
-                android:text="1. Seleccionar el proyecto que deseas conocer\n\n2. Escuchar la charla preparada por cada expositor\n\n3. Escanear el código QR proporcionado en cada proyecto\n\n4. Responder las preguntas asociadas al proyecto\n\n5. Repetir los anteriores pasos con cada proyecto presente"
-                android:layout_gravity="center_horizontal"
-                android:textSize="18dp"
-                android:textColor="@color/colorSubAccent"
-                android:textStyle="italic"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                />
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/et_instrucciones"
+                    android:text="1. Seleccionar el proyecto que deseas conocer\n\n2. Escuchar la charla preparada por cada expositor\n\n3. Escanear el código QR proporcionado en cada proyecto\n\n4. Responder las preguntas asociadas al proyecto\n\n5. Repetir los anteriores pasos con cada proyecto presente"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="18dp"
+                    android:textColor="@color/colorSubAccent"
+                    android:textStyle="italic"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    />
+
+                <Button
+                    android:layout_width="130dp"
+                    android:layout_height="60dp"
+                    android:layout_below="@+id/et_instrucciones"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="comencemos"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/colorSubAccent"
+                    android:id="@+id/btn_continuar_welcome"
+                    android:background="@drawable/bordesredondeados"
+                    />
+
+            </RelativeLayout>
 
         </ScrollView>
 
-
-        <Button
-            android:layout_width="130dp"
-            android:layout_height="60dp"
-            android:layout_below="@+id/scroll"
-            android:layout_centerHorizontal="true"
-            android:gravity="center"
-            android:text="comencemos"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/colorSubAccent"
-            android:id="@+id/btn_continuar_welcome"
-            android:background="@drawable/bordesredondeados"
-            />
-
-
-
     </RelativeLayout>
-
 
 </RelativeLayout>

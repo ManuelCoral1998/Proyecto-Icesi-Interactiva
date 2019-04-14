@@ -63,6 +63,13 @@ public class ProjectList extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+
+    }
+
     private ArrayList<Proyecto> generarArrayList () {
         ArrayList<Proyecto> proyectos = db.darProyectos();
         return proyectos;

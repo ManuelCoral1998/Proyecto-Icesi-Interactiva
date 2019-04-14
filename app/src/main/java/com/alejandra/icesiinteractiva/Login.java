@@ -27,6 +27,7 @@ public class Login extends AppCompatActivity {
     private CheckBox cb_acept_info;
     private Button btn_signup_ingresar;
     private RelativeLayout relative;
+    private RelativeLayout relative_imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,9 @@ public class Login extends AppCompatActivity {
 
         relative = findViewById(R.id.relative);
         relative.getBackground().setAlpha(40);
+
+        relative_imagen = findViewById(R.id.relative_imagen);
+        relative_imagen.getBackground().setAlpha(95);
 
         et_signup_name = findViewById(R.id.et_signup_nombre);
         et_signup_email = findViewById(R.id.et_signup_correo);
