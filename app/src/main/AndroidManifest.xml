@@ -31,7 +31,8 @@
             android:name="com.google.android.gms.vision.DEPENDENCIES"
             android:value="barcode" />
 
-        <activity android:name=".DescriptionProject"></activity>
+        <activity android:name=".DescriptionProject" />
+        <activity android:name=".Verificacion"></activity>
     </application>
 
 </manifest>

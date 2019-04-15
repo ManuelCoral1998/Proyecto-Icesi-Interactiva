@@ -10,6 +10,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
+import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.util.ArrayList;
@@ -30,8 +31,6 @@ public class ProjectList extends AppCompatActivity {
 
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
 
-        db = DBHandler.getInstance();
-
         listaProyectos = (ListView) findViewById(R.id.listView);
 
         linear_proyectos= findViewById(R.id.linear_proyectos);
@@ -41,6 +40,8 @@ public class ProjectList extends AppCompatActivity {
         tv_proyectos = findViewById(R.id.tv_proyectos);
 
         tv_proyectos.getBackground().setAlpha(89);
+
+        db = DBHandler.getInstance();
 
         adaptador = new Adapter(this, generarArrayList());
 
@@ -56,17 +57,8 @@ public class ProjectList extends AppCompatActivity {
                 Intent i = new Intent(ProjectList.this, DescriptionProject.class);
                 i.putExtra("Proyecto", aVisitar);
                 startActivity(i);
-
             }
         });
-
-    }
-
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
 
     }
 

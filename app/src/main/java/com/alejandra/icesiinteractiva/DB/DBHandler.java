@@ -56,7 +56,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
                 int check = invitado.getAceptaInfo() ? 1: 0;
 
-                String info = "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + check + "'" + "," + "'" + invitado.getPuntaje() + "'";
+                String info = "'" + invitado.getId() + "'" + "," + "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + check + "'" + "," + "'" + invitado.getPuntaje() + "'";
                 Statement state;
 
                 try {
@@ -67,7 +67,6 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 }
                 return null;
             }
-
         }
         SendData send = new SendData();
         send.execute();
@@ -138,7 +137,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         bring.execute();
     }
 
-    public void actualizarPuntaje (final String correo, final int puntaje) {
+    public void actualizarPuntaje (final String id, final int puntaje) {
 
         class UpdateData extends AsyncTask<String, Void, Void> {
 
@@ -147,8 +146,8 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 Statement state;
                 try {
                     state = conn.createStatement();
-                    Log.d("Acutaliar" , correo);
-                    state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ "+puntaje+" WHERE correo = '"+ correo + "'");
+                    Log.d("Acutaliar" , id);
+                    state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ "+puntaje+" WHERE id = '"+ id + "'");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

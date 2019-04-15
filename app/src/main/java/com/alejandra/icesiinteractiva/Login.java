@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.ActionCodeSettings;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -67,7 +68,7 @@ public class Login extends AppCompatActivity {
         conn = DBHandler.getInstance();
 
         if (auth.getCurrentUser() != null) {
-            Intent i = new Intent(this, Welcome.class);
+            Intent i = new Intent(this, ProjectList.class);
             startActivity(i);
             finish();
         }
@@ -76,7 +77,7 @@ public class Login extends AppCompatActivity {
                 ActionCodeSettings.newBuilder()
                         // URL you want to redirect back to. The domain (www.example.com) for this
                         // URL must be whitelisted in the Firebase Console.
-                        .setUrl("https://icesi-interactiva.firebaseapp.com")
+                        .setUrl("icesi-interactiva.firebaseapp.com")
                         // This must be true
                         .setHandleCodeInApp(true)
                         .setAndroidPackageName(
@@ -91,20 +92,6 @@ public class Login extends AppCompatActivity {
 
                 String nombre = et_signup_name.getText().toString();
                 String correo = et_signup_email.getText().toString();
-                boolean check = cb_acept_info.isChecked();
-
-                auth.createUserWithEmailAndPassword(correo, nombre);
-
-//                auth.sendSignInLinkToEmail(correo, actionCodeSettings).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()) {
-//                            Toast.makeText(Login.this, "ENVIADO", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//                });
-
-                Invitado invitado = null;
 
                 if (nombre.equals("") || correo.equals("")) {
 
@@ -119,14 +106,39 @@ public class Login extends AppCompatActivity {
                     });
                     alerta.show();
                 } else {
-                    invitado = new Invitado(nombre, correo, check);
-                    conn.crearInvitadoSQL(invitado);
-                }
+                    auth.createUserWithEmailAndPassword(correo, nombre).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
 
-                if (invitado != null) {
-                    Intent intent = new Intent(Login.this, Welcome.class);
-                    startActivity(intent);
-                    finish();
+                            //VERIFICAR EL CORREO
+                            //auth.sendSignInLinkToEmail(et_signup_email.getText().toString(), actionCodeSettings);
+
+                            String id = auth.getCurrentUser().getUid();
+                            Invitado invitado = new Invitado(id, et_signup_name.getText().toString(), et_signup_email.getText().toString(), cb_acept_info.isChecked());
+                            conn.crearInvitadoSQL(invitado);
+
+                            if (cb_acept_info.isChecked()) {
+                                FirebaseUser user = auth.getCurrentUser();
+
+                                user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Intent i = new Intent(Login.this, Verificacion.class);
+                                        startActivity(i);
+                                        finish();
+                                    }
+                                });
+                            } else {
+                                if (invitado != null) {
+                                    Intent intent = new Intent(Login.this, Welcome.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+
+                        }
+                    });
+
                 }
 
             }

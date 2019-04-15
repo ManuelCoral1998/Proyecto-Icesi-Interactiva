@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Pregunta;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -26,9 +27,13 @@ public class Question extends AppCompatActivity {
     private RadioGroup radioGroup2;
     private ArrayList<Pregunta> preguntas;
 
+    private TextView tv_pregunta1;
+    private TextView tv_pregunta2;
+
     private Button enviar;
 
     DBHandler dbHandler;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +46,21 @@ public class Question extends AppCompatActivity {
         tv_empecemos = findViewById(R.id.empecemos);
         tv_empecemos.getBackground().setAlpha(89);
 
+        tv_pregunta1 = findViewById(R.id.pregunta1);
+        tv_pregunta2 = findViewById(R.id.pregunta2);
+
         radioGroup1 = findViewById(R.id.radio_pregunta1);
         radioGroup2 = findViewById(R.id.radio_pregunta2);
         Log.d("TAMAÑO", radioGroup1.getChildCount()+"");
 
         dbHandler = DBHandler.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         preguntas = (ArrayList<Pregunta>) getIntent().getSerializableExtra("Preguntas");
 
         String [] pregunta1Opciones = preguntas.get(0).getOpciones();
+
+        tv_pregunta1.setText(preguntas.get(0).getPregunta());
 
         for (int i = 1, k = 0; i < radioGroup1.getChildCount(); i++, k++) {
             RadioButton aux = (RadioButton) radioGroup1.getChildAt(i);
@@ -57,6 +68,8 @@ public class Question extends AppCompatActivity {
         }
 
         String [] pregunta2Opciones = preguntas.get(1).getOpciones();
+
+        tv_pregunta2.setText(preguntas.get(1).getPregunta());
 
         for (int i = 1, k = 0; i < radioGroup2.getChildCount(); i++, k++) {
             RadioButton aux = (RadioButton) radioGroup2.getChildAt(i);
@@ -71,14 +84,16 @@ public class Question extends AppCompatActivity {
                 boolean p1 = comprobarPregunta1();
                 boolean p2 = comprobarPregunta2();
 
+                String id = auth.getCurrentUser().getUid();
+
                 int puntos = 0;
 
                 if (p1 && p2) {
                     puntos = 10;
-                    dbHandler.actualizarPuntaje("coral", puntos);
+                    dbHandler.actualizarPuntaje(id, puntos);
                 } else if (p1 || p2) {
                     puntos = 5;
-                    dbHandler.actualizarPuntaje("coral", puntos);
+                    dbHandler.actualizarPuntaje(id, puntos);
                 }
                 mostrarPuntaje(puntos);
             }
