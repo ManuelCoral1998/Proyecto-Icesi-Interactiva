@@ -66,6 +66,7 @@ public class Login extends AppCompatActivity {
         btn_signup_ingresar = findViewById(R.id.btn_signup_ingresar);
 
         conn = DBHandler.getInstance();
+        conn.traerDatosProyectos();
 
         if (auth.getCurrentUser() != null) {
             Intent i = new Intent(this, ProjectList.class);

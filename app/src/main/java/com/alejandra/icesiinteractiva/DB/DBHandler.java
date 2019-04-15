@@ -28,8 +28,6 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
-            traerDatosProyectos();
-
         } catch (Exception e) {
             Log.d(">>>> DB", "NO PASO" + e.getMessage());
         }
@@ -73,33 +71,44 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
     }
 
     public void traerDatosProyectos() {
+        class BringProject extends AsyncTask<String, Void, Void> {
+            @Override
+            protected Void doInBackground(String... strings) {
+                proyectos =new ArrayList<>();
+                Statement state;
+                try {
+                    state = conn.createStatement();
+                    ResultSet rs = state.executeQuery("Select * from proyecto");
 
-        proyectos = new ArrayList<>();
-        Statement state;
-        try {
-            state = conn.createStatement();
-            ResultSet rs = state.executeQuery("Select * from proyecto");
+                    Log.d(">>>RS", rs + "");
 
-            Log.d(">>>RS", rs + "");
+                    while (rs.next()) {
+                        String nombre = rs.getString("nombre");
+                        String descripcion = rs.getString("descripcion");
+                        String materia = rs.getString("materia");
+                        String expositores = rs.getString("expositores");
+                        //int logo = Integer.parseInt(rs.getString("logo"));
+                        String palabra_clave = rs.getString("palabra_clave");
 
-            while (rs.next()) {
-                String nombre = rs.getString("nombre");
-                String descripcion = rs.getString("descripcion");
-                String materia = rs.getString("materia");
-                String expositores = rs.getString("expositores");
-                //int logo = Integer.parseInt(rs.getString("logo"));
-                String palabra_clave = rs.getString("palabra_clave");
+                        Log.d(">>>", nombre + " " + descripcion);
+                        Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, 0, palabra_clave);
 
-                Log.d(">>>", nombre + " " + descripcion);
-                Proyecto proyecto = new Proyecto(nombre, descripcion, materia, expositores, 0, palabra_clave);
+                        proyectos.add(proyecto);
+                    }
+                } catch(
+                        SQLException e)
 
-                proyectos.add(proyecto);
+                {
+                    Log.d("ERROR", e.getMessage());
+                    e.printStackTrace();
+                }
+
+                return null;
             }
-        } catch (SQLException e) {
-            Log.d("ERROR", e.getMessage());
-            e.printStackTrace();
         }
 
+        BringProject bringProject = new BringProject();
+        bringProject.execute();
     }
 
     public void traerPreguntas (final String nombreProyecto) {

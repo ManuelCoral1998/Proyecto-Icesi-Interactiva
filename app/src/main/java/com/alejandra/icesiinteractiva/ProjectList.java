@@ -30,8 +30,10 @@ public class ProjectList extends AppCompatActivity {
         setContentView(R.layout.activity_project_list);
 
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
+        db = DBHandler.getInstance();
 
-        listaProyectos = (ListView) findViewById(R.id.listView);
+        listaProyectos = findViewById(R.id.listView);
+        adaptador = new Adapter(this, generarArrayList());
 
         linear_proyectos= findViewById(R.id.linear_proyectos);
 
@@ -40,10 +42,6 @@ public class ProjectList extends AppCompatActivity {
         tv_proyectos = findViewById(R.id.tv_proyectos);
 
         tv_proyectos.getBackground().setAlpha(89);
-
-        db = DBHandler.getInstance();
-
-        adaptador = new Adapter(this, generarArrayList());
 
         listaProyectos.setAdapter(adaptador);
 
