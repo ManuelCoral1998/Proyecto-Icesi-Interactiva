@@ -3,14 +3,64 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Verificacion">
+    android:layout_height="match_parent">
 
-    <Button
+
+    <RelativeLayout
         android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="@color/colorPrimary"
+        android:id="@+id/relative_imagen_verificacion">
+        <ImageView
+            android:id="@+id/logo_verificacion"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:src="@drawable/imagen" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Continuar"
-        android:id="@+id/btn_continuar_verificacion"
-        />
+        android:layout_below="@id/relative_imagen_verificacion"
+        android:id="@+id/relative_verifiacion"
+        android:background="@drawable/iconos_tele1">
+
+        <TextView
+            android:id="@+id/tv_verificacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:hint="¡Futuro Ingeniero Telematico!\nEstamos verificando tu correo electronico.\nEn un momento podrás acceder al contenido de la aplicación."
+            android:gravity="center"
+            android:textSize="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorSubAccent"
+            android:textColorHint="@color/colorSubAccent"
+            />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Continuar"
+            android:id="@+id/btn_continuar_verificacion"
+            android:layout_below="@+id/tv_verificacion"
+            android:layout_marginTop="40dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bordes_textfile"
+            android:textColor="@color/colorSubAccent"
+            />
+    </RelativeLayout>
+
+
+
 
 </RelativeLayout>

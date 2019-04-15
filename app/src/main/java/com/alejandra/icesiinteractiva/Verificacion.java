@@ -7,12 +7,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Verificacion extends AppCompatActivity {
 
     private Button btn_continuar_verificacion;
+    private RelativeLayout relative_verificacion;
+    private RelativeLayout relative_imagen_verificacion;
     FirebaseAuth auth;
 
     @Override
@@ -21,6 +24,13 @@ public class Verificacion extends AppCompatActivity {
         setContentView(R.layout.activity_verificacion);
 
         auth = FirebaseAuth.getInstance();
+
+
+        relative_verificacion = findViewById(R.id.relative_verifiacion);
+        relative_verificacion.getBackground().setAlpha(40);
+
+        relative_imagen_verificacion = findViewById(R.id.relative_imagen_verificacion);
+        relative_imagen_verificacion.getBackground().setAlpha(95);
 
         btn_continuar_verificacion = findViewById(R.id.btn_continuar_verificacion);
 
