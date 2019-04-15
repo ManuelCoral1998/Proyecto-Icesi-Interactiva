@@ -84,4 +84,9 @@
         app:menu="@menu/menu_bar">
     </android.support.design.widget.BottomNavigationView>
 
+
+
+
+
+
 </RelativeLayout>
