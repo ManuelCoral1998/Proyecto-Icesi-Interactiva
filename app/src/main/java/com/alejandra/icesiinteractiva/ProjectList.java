@@ -1,8 +1,11 @@
 package com.alejandra.icesiinteractiva;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -10,17 +13,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
-import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.util.ArrayList;
 
-public class ProjectList extends AppCompatActivity implements DBHandler.OnFinishProjects{
+public class ProjectList extends AppCompatActivity implements DBHandler.OnFinishProjects, DBHandler.OnFinishRanking{
 
     private ListView listaProyectos;
     private Adapter adaptador;
     private LinearLayout linear_proyectos;
     private TextView tv_proyectos;
+    private BottomNavigationView navigationView;
 
     DBHandler db;
 
@@ -43,7 +46,28 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
 
         db = DBHandler.getInstance();
         db.setOnFinishProjects(this);
+        db.setOnFinishRanking(this);
         db.traerDatosProyectos();
+
+        navigationView = findViewById(R.id.navigation_project);
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+                switch (menuItem.getItemId()) {
+
+                    case R.id.menubar_project:
+                        break;
+
+                    case R.id.menubar_ranking:
+                        db.generarRanking();
+                        break;
+
+                }
+                return false;
+            }
+        });
 
     }
 
@@ -70,5 +94,12 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onFinishRanking(String[] ranking) {
+        Intent intent = new Intent(ProjectList.this, Ranking.class);
+        intent.putExtra("Ranking", ranking);
+        startActivity(intent);
     }
 }

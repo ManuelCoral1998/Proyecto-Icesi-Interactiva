@@ -173,6 +173,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
     }
 
     public void generarRanking () {
+        final String[] invitadosRanking = new String[3];
         class GenerateRanking extends AsyncTask<String, Void, Void> {
 
             @Override
@@ -182,10 +183,14 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                     state = conn.createStatement();
                     ResultSet rs = state.executeQuery("SELECT nombre FROM `invitado` ORDER BY puntaje DESC LIMIT 3");
 
+                    int i = 0;
                     while(rs.next()) {
-
+                        String nombre = rs.getString("nombre");
+                        Log.d("NOMBRES", nombre);
+                        invitadosRanking[i] = nombre;
+                        i++;
                     }
-
+                    finishRanking.onFinishRanking(invitadosRanking);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -212,6 +217,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         this.finishQuestion = finishQuestion;
     }
 
+    //OBSERVER TRAER PROYECTOS
     public interface OnFinishProjects {
         void onFinishProjects ();
     }
@@ -221,5 +227,17 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
     public void setOnFinishProjects (OnFinishProjects finishProjects) {
         this.finishProjects = finishProjects;
     }
+
+    //OBSERVER RANKING
+    public interface OnFinishRanking {
+        void onFinishRanking(String[] ranking);
+    }
+
+    private OnFinishRanking finishRanking;
+
+    public void setOnFinishRanking(OnFinishRanking finishRanking) {
+        this.finishRanking = finishRanking;
+    }
+
 
 }
