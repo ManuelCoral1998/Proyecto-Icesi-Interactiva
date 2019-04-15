@@ -46,7 +46,7 @@ public class Adapter extends BaseAdapter {
         TextView nombre_proyecto = (TextView) convertView.findViewById(R.id.nombre_proyecto);
         TextView palabras_claves_proyecto = (TextView) convertView.findViewById(R.id.palabras_claves_proyecto);
 
-        //logo.setImageResource(proyecto.getLogoProyecto());
+        logo.setImageResource(proyecto.getLogoProyecto());
         nombre_proyecto.setText(proyecto.getName());
         palabras_claves_proyecto.setText(proyecto.getSubject());
 

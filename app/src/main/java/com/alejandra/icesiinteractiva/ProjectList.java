@@ -56,8 +56,6 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
     public void onFinishProjects() {
         adaptador = new Adapter(this, generarArrayList());
 
-
-
         listaProyectos.setAdapter(adaptador);
 
         listaProyectos.setTextFilterEnabled(true);
