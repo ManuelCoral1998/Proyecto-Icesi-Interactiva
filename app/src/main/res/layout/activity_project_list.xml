@@ -25,24 +25,38 @@
             android:text="¿POR DONDÉ QUIERES COMENZAR?"
             android:textColor="@color/colorSubAccent"
             android:textSize="30dp" />
+
+
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/listView"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorSubAccent"
-        >
+        android:layout_height="match_parent">
 
-    </ListView>
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorSubAccent"
+            android:layout_marginBottom="60dp"
+            >
 
-    <android.support.design.widget.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/navigation_project"
-        app:menu="@menu/menu_bar">
-    </android.support.design.widget.BottomNavigationView>
+        </ListView>
+
+        <android.support.design.widget.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/navigation_project"
+            app:menu="@menu/menu_bar"
+            app:itemBackground="@color/colorSubAccent"
+            android:background="@color/colorSubAccent">
+        </android.support.design.widget.BottomNavigationView>
+
+
+    </RelativeLayout>
+
+
 
 
 
