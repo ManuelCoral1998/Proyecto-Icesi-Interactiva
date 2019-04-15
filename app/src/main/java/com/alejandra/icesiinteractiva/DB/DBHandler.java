@@ -172,6 +172,31 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         update.execute();
     }
 
+    public void generarRanking () {
+        class GenerateRanking extends AsyncTask<String, Void, Void> {
+
+            @Override
+            protected Void doInBackground(String... strings) {
+                Statement state;
+                try {
+                    state = conn.createStatement();
+                    ResultSet rs = state.executeQuery("SELECT nombre FROM `invitado` ORDER BY puntaje DESC LIMIT 3");
+
+                    while(rs.next()) {
+
+                    }
+
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+
+        }
+        GenerateRanking generateRanking = new GenerateRanking();
+        generateRanking.execute();
+    }
+
     public ArrayList<Proyecto> darProyectos () {
         return proyectos;
     }

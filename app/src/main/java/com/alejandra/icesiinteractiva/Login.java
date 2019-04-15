@@ -45,6 +45,18 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        Log.d("PATH: " , R.drawable.abaco_bot+"");
+        Log.d("PATH: " , R.drawable.voip_con_zoiper+"");
+        Log.d("PATH: " , R.drawable.vive_icesi+"");
+        Log.d("PATH: " , R.drawable.streaming+"");
+        Log.d("PATH: " , R.drawable.nerdgo+"");
+        Log.d("PATH: " , R.drawable.ingenibots+"");
+        Log.d("PATH: " , R.drawable.dragon_battle_pcs+"");
+        Log.d("PATH: " , R.drawable.deteccion_de_placas_con_aws+"");
+        Log.d("PATH: " , R.drawable.administracion_en_linux+"");
+        Log.d("PATH: " , R.drawable.fix_it_felix+"");
+
+
         if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(Login.this,

@@ -76,8 +76,6 @@
 
     </RelativeLayout>
 
-
-
     <android.support.design.widget.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -85,10 +83,5 @@
         android:id="@+id/navigation_ranking"
         app:menu="@menu/menu_bar">
     </android.support.design.widget.BottomNavigationView>
-
-
-
-
-
 
 </RelativeLayout>
