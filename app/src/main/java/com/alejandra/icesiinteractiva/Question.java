@@ -103,8 +103,8 @@ public class Question extends AppCompatActivity {
     public void mostrarPuntaje (int puntos) {
 
         final AlertDialog.Builder dialogoPuntos = new AlertDialog.Builder(Question.this);
-        dialogoPuntos.setTitle("¡Gracias por participar!");
-        dialogoPuntos.setMessage("Los puntos que ganaste por responder son: " + puntos);
+        dialogoPuntos.setTitle("¡Futuro Ingeniero Telematico!");
+        dialogoPuntos.setMessage("Gracias por participar, los puntos que ganaste por responder son: " + puntos);
         dialogoPuntos.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

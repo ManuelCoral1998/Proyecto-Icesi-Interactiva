@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_instrucciones"
-                    android:text="1. Seleccionar el proyecto que deseas conocer\n\n2. Escuchar la charla preparada por cada expositor\n\n3. Escanear el código QR proporcionado en cada proyecto\n\n4. Responder las preguntas asociadas al proyecto\n\n5. Repetir los anteriores pasos con cada proyecto presente"
+                    android:text="1. Selecciona el proyecto que deseas conocer\n\n2. Escucha la charla preparada por cada expositor\n\n3. Escanea el código QR proporcionado en cada proyecto\n\n4. Responde las preguntas asociadas al proyecto\n\n5. Repite los anteriores pasos con cada proyecto presente"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18dp"
                     android:textColor="@color/colorSubAccent"

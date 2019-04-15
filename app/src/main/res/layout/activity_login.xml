@@ -70,8 +70,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="31dp"
                 android:gravity="center"
-                android:text="Acepta que se envíe información sobre
-la carrera a su correo"
+                android:text="Acepto que se envíe información sobre
+la carrera a mi correo electronico"
                 android:textSize="17dp"
                 android:textColor="@color/colorAccent"/>
 
