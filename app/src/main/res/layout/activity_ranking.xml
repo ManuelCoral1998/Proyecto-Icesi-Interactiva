@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/linear_ranking"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/welcome"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/tv_ranking"
+            android:layout_width="250dp"
+            android:layout_height="90dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="¡RANKING!"
+            android:textColor="@color/colorSubAccent"
+            android:textSize="30dp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear_ranking"
+        android:background="@color/colorSubAccent">
+
+        <TextView
+            android:id="@+id/participante1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="39dp"
+            android:gravity="center"
+            android:text="Manuel Alejandro Coral Lozano"
+            android:textColor="@color/colorAccent"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/participante2"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="246dp"
+            android:gravity="center"
+            android:text="Manuel Alejandro Coral Lozano"
+            android:textColor="@color/colorAccent"
+            android:textSize="13dp" />
+
+        <TextView
+            android:id="@+id/participante3"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="228dp"
+            android:gravity="center"
+            android:text="Manuel Alejandro Coral Lozano"
+            android:textColor="@color/colorAccent"
+            android:textSize="13dp" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/ranking_podium"/>
+
+
+    </RelativeLayout>
+
+
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/navigation_ranking"
+        app:menu="@menu/menu_bar">
+    </android.support.design.widget.BottomNavigationView>
+
+
+
+
+
+
+</RelativeLayout>

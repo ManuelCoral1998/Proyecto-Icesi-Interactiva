@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen"
+        <activity
+            android:name=".SplashScreen"
             android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,7 +34,8 @@
             android:value="barcode" />
 
         <activity android:name=".DescriptionProject" />
-        <activity android:name=".Verificacion"></activity>
+        <activity android:name=".Verificacion" />
+        <activity android:name=".Ranking"></activity>
     </application>
 
 </manifest>
