@@ -45,10 +45,10 @@
             android:id="@+id/participante2"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView"
             android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginStart="3dp"
-            android:layout_marginBottom="246dp"
+            android:layout_marginBottom="111dp"
             android:gravity="center"
             android:text="Manuel Alejandro Coral Lozano"
             android:textColor="@color/colorAccent"
@@ -58,10 +58,10 @@
             android:id="@+id/participante3"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView3"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginEnd="0dp"
-            android:layout_marginBottom="228dp"
+            android:layout_marginBottom="43dp"
             android:gravity="center"
             android:text="Manuel Alejandro Coral Lozano"
             android:textColor="@color/colorAccent"
@@ -70,8 +70,28 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="250dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="40dp"
-            android:src="@drawable/ranking_podium"/>
+            android:src="@drawable/ranking_podium" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="130dp"
+            android:layout_height="77dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="155dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="163dp"
+            android:layout_marginEnd="12dp" />
 
 
     </RelativeLayout>

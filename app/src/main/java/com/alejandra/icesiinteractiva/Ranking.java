@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -35,7 +36,10 @@ public class Ranking extends AppCompatActivity {
         participante3.setText(ranking[2]);
 
         navigationView = findViewById(R.id.navigation_ranking);
+        Menu menu = navigationView.getMenu();
 
+        MenuItem menuItem = menu.getItem(1);
+        menuItem.setChecked(true);
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -44,6 +48,7 @@ public class Ranking extends AppCompatActivity {
                     case R.id.menubar_project:
                         Intent intent = new Intent(Ranking.this, ProjectList.class);
                         startActivity(intent);
+                        finish();
                         break;
 
                     case R.id.menubar_ranking:
