@@ -32,6 +32,8 @@ public class Verificacion extends AppCompatActivity {
         relative_imagen_verificacion = findViewById(R.id.relative_imagen_verificacion);
         relative_imagen_verificacion.getBackground().setAlpha(95);
 
+
+
         btn_continuar_verificacion = findViewById(R.id.btn_continuar_verificacion);
 
         btn_continuar_verificacion.setOnClickListener(new View.OnClickListener() {

@@ -24,41 +24,49 @@
 
 
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relative_imagen_verificacion"
-        android:id="@+id/relative_verifiacion"
-        android:background="@drawable/iconos_tele1">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relative_imagen_verificacion">
 
-        <TextView
-            android:id="@+id/tv_verificacion"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:hint="¡Futuro Ingeniero Telematico!\nEstamos verificando tu correo electronico.\nEn un momento podrás acceder al contenido de la aplicación."
-            android:gravity="center"
-            android:textSize="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:background="@color/colorPrimary"
-            android:textColor="@color/colorSubAccent"
-            android:textColorHint="@color/colorSubAccent"
-            />
+            android:layout_below="@id/relative_imagen_verificacion"
+            android:id="@+id/relative_verifiacion"
+            android:background="@drawable/iconos_tele1">
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="Continuar"
-            android:id="@+id/btn_continuar_verificacion"
-            android:layout_below="@+id/tv_verificacion"
-            android:layout_marginTop="40dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/bordes_textfile"
-            android:textColor="@color/colorSubAccent"
-            />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_verificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="40dp"
+                android:hint="\n¡Futuro Ingeniero Telematico!\n\nEstamos verificando tu correo electronico.\n\nEn un momento podrás acceder al contenido de la aplicación.\n"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorSubAccent"
+                android:textColorHint="@color/colorSubAccent"
+                />
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Continuar"
+                android:id="@+id/btn_continuar_verificacion"
+                android:layout_below="@+id/tv_verificacion"
+                android:layout_marginTop="40dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bordes_textfile"
+                android:textColor="@color/colorSubAccent"
+                />
+        </RelativeLayout>
+
+
+    </ScrollView>
 
 
 
