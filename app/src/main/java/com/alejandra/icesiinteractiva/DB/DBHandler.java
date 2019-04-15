@@ -74,7 +74,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         class BringProject extends AsyncTask<String, Void, Void> {
             @Override
             protected Void doInBackground(String... strings) {
-                proyectos =new ArrayList<>();
+                proyectos = new ArrayList<>();
                 Statement state;
                 try {
                     state = conn.createStatement();
@@ -95,15 +95,19 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
                         proyectos.add(proyecto);
                     }
-                } catch(
-                        SQLException e)
-
+                } catch(SQLException e)
                 {
                     Log.d("ERROR", e.getMessage());
                     e.printStackTrace();
                 }
 
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                finishProjects.onFinishProjects();
             }
         }
 
@@ -181,6 +185,16 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
     public void setOnFinishQuestion (OnFinishQuestion finishQuestion) {
         this.finishQuestion = finishQuestion;
+    }
+
+    public interface OnFinishProjects {
+        void onFinishProjects ();
+    }
+
+    private OnFinishProjects finishProjects;
+
+    public void setOnFinishProjects (OnFinishProjects finishProjects) {
+        this.finishProjects = finishProjects;
     }
 
 }

@@ -15,7 +15,7 @@ import com.alejandra.icesiinteractiva.model.Proyecto;
 
 import java.util.ArrayList;
 
-public class ProjectList extends AppCompatActivity {
+public class ProjectList extends AppCompatActivity implements DBHandler.OnFinishProjects{
 
     private ListView listaProyectos;
     private Adapter adaptador;
@@ -30,10 +30,8 @@ public class ProjectList extends AppCompatActivity {
         setContentView(R.layout.activity_project_list);
 
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_right);
-        db = DBHandler.getInstance();
 
         listaProyectos = findViewById(R.id.listView);
-        adaptador = new Adapter(this, generarArrayList());
 
         linear_proyectos= findViewById(R.id.linear_proyectos);
 
@@ -42,6 +40,23 @@ public class ProjectList extends AppCompatActivity {
         tv_proyectos = findViewById(R.id.tv_proyectos);
 
         tv_proyectos.getBackground().setAlpha(89);
+
+        db = DBHandler.getInstance();
+        db.setOnFinishProjects(this);
+        db.traerDatosProyectos();
+
+    }
+
+    private ArrayList<Proyecto> generarArrayList () {
+        ArrayList<Proyecto> proyectos = db.darProyectos();
+        return proyectos;
+    }
+
+    @Override
+    public void onFinishProjects() {
+        adaptador = new Adapter(this, generarArrayList());
+
+
 
         listaProyectos.setAdapter(adaptador);
 
@@ -57,12 +72,5 @@ public class ProjectList extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
-
-    private ArrayList<Proyecto> generarArrayList () {
-        ArrayList<Proyecto> proyectos = db.darProyectos();
-        return proyectos;
-    }
-
 }

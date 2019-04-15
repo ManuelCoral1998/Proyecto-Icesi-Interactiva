@@ -28,7 +28,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
-
     DBHandler conn;
     private static final int requestCamaraPermissionID = 1001;
 
@@ -46,7 +45,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
 
             ActivityCompat.requestPermissions(Login.this,
                     new String[]{Manifest.permission.CAMERA}, requestCamaraPermissionID);
@@ -66,26 +65,13 @@ public class Login extends AppCompatActivity {
         btn_signup_ingresar = findViewById(R.id.btn_signup_ingresar);
 
         conn = DBHandler.getInstance();
-        conn.traerDatosProyectos();
+        //conn.traerDatosProyectos();
 
         if (auth.getCurrentUser() != null) {
             Intent i = new Intent(this, ProjectList.class);
             startActivity(i);
             finish();
         }
-
-        final ActionCodeSettings actionCodeSettings =
-                ActionCodeSettings.newBuilder()
-                        // URL you want to redirect back to. The domain (www.example.com) for this
-                        // URL must be whitelisted in the Firebase Console.
-                        .setUrl("icesi-interactiva.firebaseapp.com")
-                        // This must be true
-                        .setHandleCodeInApp(true)
-                        .setAndroidPackageName(
-                                "com.alejandra.icesiinteractiva",
-                                true, /* installIfNotAvailable */
-                                "12"    /* minimumVersion */)
-                        .build();
 
         btn_signup_ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -139,11 +125,9 @@ public class Login extends AppCompatActivity {
 
                         }
                     });
-
                 }
-
             }
         });
-
     }
+
 }
