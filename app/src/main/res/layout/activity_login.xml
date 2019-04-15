@@ -21,71 +21,79 @@
     </RelativeLayout>
 
 
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/relative_imagen"
-        android:id="@+id/relative"
-        android:background="@drawable/iconos_tele1">
+        android:layout_height="match_parent"
+        android:layout_below="@id/relative_imagen">
 
-        <EditText
-            android:id="@+id/et_signup_nombre"
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/bordes_textfile"
-            android:hint="Nombre"
-            android:gravity="center"
-            android:textColor="@color/colorSubAccent"
-            android:textColorHint="@color/colorSubAccent"
-            />
-
-
-        <EditText
-            android:layout_width="250dp"
-            android:layout_height="40dp"
-            android:id="@+id/et_signup_correo"
-            android:layout_below="@+id/et_signup_nombre"
-            android:hint="Correo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="50dp"
-            android:inputType="textEmailAddress"
-            android:textColor="@color/colorSubAccent"
-            android:gravity="center"
-            android:textColorHint="@color/colorSubAccent"
-            android:background="@drawable/bordes_textfile"
-            />
-
-        <CheckBox
-            android:id="@+id/cb_acept_info"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_signup_correo"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="31dp"
-            android:gravity="center"
-            android:text="Acepta que se envíe información sobre
+            android:layout_below="@id/relative_imagen"
+            android:id="@+id/relative"
+            android:background="@drawable/iconos_tele1">
+
+            <EditText
+                android:id="@+id/et_signup_nombre"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bordes_textfile"
+                android:hint="Nombre Completo"
+                android:gravity="center"
+                android:textColor="@color/colorSubAccent"
+                android:textColorHint="@color/colorSubAccent"
+                />
+
+
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:id="@+id/et_signup_correo"
+                android:layout_below="@+id/et_signup_nombre"
+                android:hint="Correo electronico"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorSubAccent"
+                android:gravity="center"
+                android:textColorHint="@color/colorSubAccent"
+                android:background="@drawable/bordes_textfile"
+                />
+
+            <CheckBox
+                android:id="@+id/cb_acept_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_signup_correo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp"
+                android:gravity="center"
+                android:text="Acepta que se envíe información sobre
 la carrera a su correo"
-            android:textSize="17dp"
-            android:textColor="@color/colorAccent"/>
+                android:textSize="17dp"
+                android:textColor="@color/colorAccent"/>
 
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_below="@+id/cb_acept_info"
-            android:text="Iniciar"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:id="@+id/btn_signup_ingresar"
-            android:background="@drawable/bordes_textfile"
-            android:textColor="@color/colorSubAccent"
-            android:textSize="20dp"
-            />
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_below="@+id/cb_acept_info"
+                android:text="Iniciar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:id="@+id/btn_signup_ingresar"
+                android:background="@drawable/bordes_textfile"
+                android:textColor="@color/colorSubAccent"
+                android:textSize="20dp"
+                />
 
-    </RelativeLayout>
+        </RelativeLayout>
+
+
+    </ScrollView>
+
 
 
 </RelativeLayout>
