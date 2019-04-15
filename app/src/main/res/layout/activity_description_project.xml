@@ -22,89 +22,87 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/relative_descripcion"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_below="@+id/linear_proyecto_activity_descripcion"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="10dp"
-        android:background="@color/colorSubAccent">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="QUI"
-                    android:id="@+id/nombre_expositores_proyecto"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="20dp"
-                    android:textStyle="italic"
-                    android:layout_gravity="center"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_descripcion_proyecto"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:text="Descipcion de proyecto"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="20dp"
-                    android:textStyle="italic"
-                    />
-            </LinearLayout>
-
-        </ScrollView>
-
-    </RelativeLayout>
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relative_descripcion"
-        android:background="@color/colorSubAccent"
-        android:layout_marginTop="10dp">
+        android:id="@+id/scroll_completo"
+        android:layout_below="@id/linear_proyecto_activity_descripcion"
+        android:background="@color/colorSubAccent">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="¿Ya estás listo para responder preguntas sobre el proyecto?\n\nEscanea el código QR"
-            android:textSize="22dp"
-            android:textColor="@color/colorPrimary"
-            android:layout_marginTop="29dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:id="@+id/tv_escanerQR"/>
+            android:layout_height="50dp"
+            android:background="@color/colorSubAccent"
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_escanerQR"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="10dp"
-            android:text="Escanear"
-            android:id="@+id/btn_escanear_qr"
-            android:background="@drawable/bordes_textfile"
-            android:textColor="@color/colorSubAccent"
-            android:layout_marginRight="15dp"/>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/sroll_auxiliar">
 
-    </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="vertical"
+                    >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="QUI"
+                        android:id="@+id/nombre_expositores_proyecto"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="16dp"
+                        android:textStyle="italic"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_descripcion_proyecto"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:text="Descipcion de proyecto"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="20dp"/>
+
+                </LinearLayout>
+
+            </ScrollView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="¿Ya estás listo para responder preguntas sobre el proyecto?\n\nEscanea el código QR"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimary"
+                android:layout_marginTop="29dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/tv_escanerQR"/>
+
+            <Button
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_escanerQR"
+                android:layout_gravity="right"
+                android:layout_marginTop="20dp"
+                android:text="Escanear"
+                android:id="@+id/btn_escanear_qr"
+                android:background="@drawable/bordes_textfile"
+                android:textColor="@color/colorSubAccent"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"/>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
 </RelativeLayout>
