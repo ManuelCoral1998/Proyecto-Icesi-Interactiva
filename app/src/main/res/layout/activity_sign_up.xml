@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -8,7 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:background="@color/colorPrimary"
-        android:id="@+id/relative_imagen">
+        android:id="@+id/relative_imagen_signup">
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
@@ -24,17 +23,17 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/relative_imagen">
+        android:layout_below="@id/relative_imagen_signup">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/relative_imagen"
-            android:id="@+id/relative"
+            android:id="@+id/relative_signup"
             android:background="@drawable/iconos_tele1">
 
             <EditText
-                android:id="@+id/et_signup_nombre"
+                android:id="@+id/et_signup_nombre_signup"
                 android:layout_width="250dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
@@ -50,8 +49,8 @@
             <EditText
                 android:layout_width="250dp"
                 android:layout_height="40dp"
-                android:id="@+id/et_signup_correo"
-                android:layout_below="@+id/et_signup_nombre"
+                android:id="@+id/et_signup_correo_signup"
+                android:layout_below="@+id/et_signup_nombre_signup"
                 android:hint="Correo electronico"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
@@ -62,31 +61,31 @@
                 android:background="@drawable/bordes_textfile"
                 />
 
+            <CheckBox
+                android:id="@+id/cb_acept_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_signup_correo_signup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="31dp"
+                android:gravity="center"
+                android:text="Acepto que se envíe información sobre
+la carrera a mi correo electronico"
+                android:textSize="17dp"
+                android:textColor="@color/colorAccent"/>
 
             <Button
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_below="@+id/et_signup_correo"
-                android:text="Iniciar Sesión"
+                android:layout_below="@+id/cb_acept_info"
+                android:text="Registrarme"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:id="@+id/btn_signup_ingresar"
+                android:layout_marginTop="30dp"
+                android:id="@+id/btn_signup_ingresar_signup"
                 android:background="@drawable/bordes_textfile"
                 android:textColor="@color/colorSubAccent"
                 android:textSize="20dp"
-                />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:layout_below="@id/btn_signup_ingresar"
-                android:layout_marginTop="20dp"
-                android:id="@+id/tv_registrarme"
-                android:text="@string/registrarme"
-                android:gravity="center"
-                android:textColor="@color/colorAccent"
                 />
 
         </RelativeLayout>

@@ -35,7 +35,8 @@
 
         <activity android:name=".DescriptionProject" />
         <activity android:name=".Verificacion" />
-        <activity android:name=".Ranking"></activity>
+        <activity android:name=".Ranking" />
+        <activity android:name=".SignUp"></activity>
     </application>
 
 </manifest>

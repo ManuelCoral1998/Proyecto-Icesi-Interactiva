@@ -2,6 +2,7 @@ package com.alejandra.icesiinteractiva.DB;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
 import com.alejandra.icesiinteractiva.model.Invitado;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;

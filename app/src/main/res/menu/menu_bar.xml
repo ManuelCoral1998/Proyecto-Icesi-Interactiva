@@ -9,4 +9,8 @@
         android:icon="@drawable/ranking"
         android:id="@+id/menubar_ranking"/>
 
+    <item android:title="Cerrar Sesión"
+        android:icon="@drawable/exit"
+        android:id="@+id/salir"/>
+
 </menu>

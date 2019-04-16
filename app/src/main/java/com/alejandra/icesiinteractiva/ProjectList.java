@@ -1,8 +1,10 @@
 package com.alejandra.icesiinteractiva;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Proyecto;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
     private BottomNavigationView navigationView;
 
     DBHandler db;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +54,8 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
         db.setOnFinishRanking(this);
         db.traerDatosProyectos();
 
+        auth = FirebaseAuth.getInstance();
+
         navigationView = findViewById(R.id.navigation_project);
         Menu menu = navigationView.getMenu();
 
@@ -61,6 +67,29 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
                 switch (menuItem.getItemId()) {
+
+                    case R.id.salir:
+                        AlertDialog.Builder alerta = new AlertDialog.Builder(ProjectList.this);
+                        alerta.setTitle("¡Futuro Ingeniero Telematico!");
+                        alerta.setMessage("¿Estas seguro de que deseas cerrar sesión?");
+                        alerta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                auth.signOut();
+                                dialog.dismiss();
+                                Intent i = new Intent(ProjectList.this, Login.class);
+                                startActivity(i);
+                                finish();
+                            }
+                        });
+                        alerta.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                        alerta.show();
+                        break;
 
                     case R.id.menubar_project:
                         break;
