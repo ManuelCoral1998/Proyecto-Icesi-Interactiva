@@ -53,8 +53,9 @@
                 />
 
             <Button
-                android:layout_width="120dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="Continuar"
                 android:id="@+id/btn_continuar_verificacion"
                 android:layout_below="@+id/tv_verificacion"
