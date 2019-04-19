@@ -3,6 +3,7 @@ package com.alejandra.icesiinteractiva.DB;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.alejandra.icesiinteractiva.R;
 import com.alejandra.icesiinteractiva.model.Invitado;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.alejandra.icesiinteractiva.model.Proyecto;
@@ -12,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DBHandler extends AsyncTask<String, Void, Void> {
 
@@ -22,6 +24,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
     public static final String URL = "jdbc:mysql://200.3.193.22:3306/" + LOGIN;
     private Connection conn;
     private ArrayList<Proyecto> proyectos;
+    private HashMap<String, Integer> iconosProyectos;
 
     @Override
     protected Void doInBackground(String... strings) {
@@ -29,6 +32,19 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conn = DriverManager.getConnection(URL, LOGIN, PASS);
+            iconosProyectos = new HashMap<>();
+            iconosProyectos.put("NerdGo", R.drawable.nerdgo);
+            iconosProyectos.put("", R.drawable.nerdgo);
+            iconosProyectos.put("Vive Icesi", R.drawable.vive_icesi);
+            iconosProyectos.put("Dragon Battle PCS", R.drawable.dragon_battle_pcs);
+            iconosProyectos.put("Detección de placas con AWS", R.drawable.deteccion_de_placas_con_aws);
+            iconosProyectos.put("VoIP con Zoiper", R.drawable.voip_con_zoiper);
+            iconosProyectos.put("IngeniBots", R.drawable.ingenibots);
+            iconosProyectos.put("Streaming", R.drawable.streaming);
+            iconosProyectos.put("Fix It Felix", R.drawable.fix_it_felix);
+            iconosProyectos.put("Administración en Linux", R.drawable.administracion_en_linux);
+            iconosProyectos.put("ABACO-BOT", R.drawable.abaco_bot);
+            iconosProyectos.put("Icesi Interactiva App", R.drawable.vive_icesi);
         } catch (Exception e) {
             Log.d(">>>> DB", "NO PASO" + e.getMessage());
         }
@@ -88,7 +104,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                         String descripcion = rs.getString("descripcion");
                         String materia = rs.getString("materia");
                         String expositores = rs.getString("expositores");
-                        int logo = Integer.parseInt(rs.getString("logo_proyecto"));
+                        int logo = iconosProyectos.get(nombre);
                         String palabra_clave = rs.getString("palabra_clave");
 
                         Log.d(">>>", nombre + " " + descripcion);
