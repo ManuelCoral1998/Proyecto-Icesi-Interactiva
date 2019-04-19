@@ -140,11 +140,16 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
                         preguntas.add(question);
                     }
-                    finishQuestion.onFinishQuestion(preguntas);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                finishQuestion.onFinishQuestion(preguntas);
             }
         }
         BringQuestion bring = new BringQuestion();
@@ -191,13 +196,17 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                         invitadosRanking[i] = nombre;
                         i++;
                     }
-                    finishRanking.onFinishRanking(invitadosRanking);
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 return null;
             }
 
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                finishRanking.onFinishRanking(invitadosRanking);
+            }
         }
         GenerateRanking generateRanking = new GenerateRanking();
         generateRanking.execute();
