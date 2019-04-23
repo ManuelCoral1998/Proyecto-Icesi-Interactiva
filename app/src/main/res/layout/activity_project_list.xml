@@ -22,7 +22,7 @@
             android:layout_height="110dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="¿POR DONDÉ QUIERES COMENZAR?"
+            android:text="¡TRIVIA DE PROYECTOS!"
             android:textColor="@color/colorSubAccent"
             android:textSize="30dp" />
 

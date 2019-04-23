@@ -64,7 +64,7 @@ public class SignUp extends AppCompatActivity {
                 if (nombre.equals("") || correo.equals("")) {
 
                     AlertDialog.Builder alerta = new AlertDialog.Builder(SignUp.this);
-                    alerta.setTitle("¡Futuro Ingeniero Telematico!");
+                    alerta.setTitle("¡Futuro Ingeniero Telemático!");
                     alerta.setMessage("Es necesario que ingreses todos los campos");
                     alerta.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                         @Override
@@ -111,7 +111,7 @@ public class SignUp extends AppCompatActivity {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             AlertDialog.Builder alerta = new AlertDialog.Builder(SignUp.this);
-                            alerta.setTitle("¡Futuro Ingeniero Telematico!");
+                            alerta.setTitle("¡Futuro Ingeniero Telemático!");
                             alerta.setMessage("La dirección de correo que ingresaste ya se encuentra registrada");
                             alerta.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                                 @Override

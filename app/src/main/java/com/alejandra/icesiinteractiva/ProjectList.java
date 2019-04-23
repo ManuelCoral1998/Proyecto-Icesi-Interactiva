@@ -70,8 +70,8 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
 
                     case R.id.salir:
                         AlertDialog.Builder alerta = new AlertDialog.Builder(ProjectList.this);
-                        alerta.setTitle("¡Futuro Ingeniero Telematico!");
-                        alerta.setMessage("¿Estas seguro de que deseas cerrar sesión?");
+                        alerta.setTitle("¡Futuro Ingeniero Telemático!");
+                        alerta.setMessage("¿Estás seguro de que deseas cerrar sesión?");
                         alerta.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {

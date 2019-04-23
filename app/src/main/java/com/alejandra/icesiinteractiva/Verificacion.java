@@ -46,7 +46,7 @@ public class Verificacion extends AppCompatActivity {
                     finish();
                 } else {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(Verificacion.this);
-                    alerta.setTitle("¡Futuro Ingeniero Telematico!");
+                    alerta.setTitle("¡Futuro Ingeniero Telemático!");
                     alerta.setMessage("Aún no te hemos podido verificar, por favor espera un momento");
                     alerta.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
                         @Override
