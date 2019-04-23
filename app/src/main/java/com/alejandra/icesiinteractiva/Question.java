@@ -16,8 +16,6 @@ import android.widget.TextView;
 import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.io.Console;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
