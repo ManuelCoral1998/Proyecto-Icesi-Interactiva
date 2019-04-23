@@ -3,10 +3,12 @@ package com.alejandra.icesiinteractiva;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -95,7 +97,7 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
                         break;
 
                     case R.id.menubar_ranking:
-                        db.generarRanking();
+                        db.generarRankingYTraerPuntaje(auth.getCurrentUser().getUid());
                         break;
 
                 }
@@ -104,6 +106,7 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
         });
 
     }
+
 
     private ArrayList<Proyecto> generarArrayList () {
         ArrayList<Proyecto> proyectos = db.darProyectos();
@@ -125,9 +128,18 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
 
                 Intent i = new Intent(ProjectList.this, DescriptionProject.class);
                 i.putExtra("Proyecto", aVisitar);
-                startActivity(i);
+                startActivityForResult(i, 1);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(resultCode == RESULT_CANCELED) {
+            Log.d("CERRAR", "CERRAR LISTA PROYECTOS");
+            setResult(RESULT_CANCELED);
+            this.finish();
+        }
     }
 
     @Override

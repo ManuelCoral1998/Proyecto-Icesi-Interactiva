@@ -46,7 +46,6 @@ public class Adapter extends BaseAdapter {
         ImageView logo = (ImageView) convertView.findViewById(R.id.logo_proyecto_renglon);
         TextView nombre_proyecto = (TextView) convertView.findViewById(R.id.nombre_proyecto);
         TextView palabras_claves_proyecto = (TextView) convertView.findViewById(R.id.palabras_claves_proyecto);
-        Log.d("aaaaaaaaa", proyecto.getLogoProyecto()+"");
 
         logo.setImageResource(proyecto.getLogoProyecto());
         nombre_proyecto.setText(proyecto.getName());

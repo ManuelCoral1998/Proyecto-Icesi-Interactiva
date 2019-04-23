@@ -100,26 +100,44 @@ public class Question extends AppCompatActivity {
             public void onClick(View v) {
                 timer.cancel();
 
-                boolean p1 = comprobarPregunta1();
-                boolean p2 = comprobarPregunta2();
+                try {
+                    boolean p1 = comprobarPregunta1();
+                    boolean p2 = comprobarPregunta2();
 
-                String id = auth.getCurrentUser().getUid();
+                    String id = auth.getCurrentUser().getUid();
 
-                int puntos = 0;
-                int tiempo = segundos;
+                    int puntos = 0;
+                    int tiempo = segundos;
 
-                Log.d("Tiempo: " ,tiempo + " segundos");
+                    Log.d("Tiempo: " ,tiempo + " segundos");
 
-                if (p1 && p2) {
-                    puntos = 10;
-                    dbHandler.actualizarPuntaje(id, puntos, tiempo);
-                } else if (p1 || p2) {
-                    puntos = 5;
-                    dbHandler.actualizarPuntaje(id, puntos, tiempo);
+                    if (p1 && p2) {
+                        puntos = 10;
+                        dbHandler.actualizarPuntaje(id, puntos, tiempo);
+                    } else if (p1 || p2) {
+                        puntos = 5;
+                        dbHandler.actualizarPuntaje(id, puntos, tiempo);
+                    }
+                    mostrarPuntaje(puntos);
+                } catch (NullPointerException e) {
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(Question.this);
+                    alerta.setTitle("¡Futuro Ingeniero Telemático!");
+                    alerta.setMessage("Es necesario que ingreses todas las respuestas");
+                    alerta.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+                    alerta.show();
                 }
-                mostrarPuntaje(puntos);
+
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 
     public void mostrarPuntaje (int puntos) {
@@ -130,6 +148,7 @@ public class Question extends AppCompatActivity {
         dialogoPuntos.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                setResult(RESULT_CANCELED);
                 Intent intent = new Intent(Question.this, ProjectList.class);
                 startActivity(intent);
                 finish();

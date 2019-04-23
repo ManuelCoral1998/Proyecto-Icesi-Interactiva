@@ -20,6 +20,7 @@ public class Ranking extends AppCompatActivity {
     private TextView participante1;
     private TextView participante2;
     private TextView participante3;
+    private TextView tv_valor_puntaje;
     private BottomNavigationView navigationView;
 
     FirebaseAuth auth;
@@ -36,6 +37,8 @@ public class Ranking extends AppCompatActivity {
         linear_ranking = findViewById(R.id.linear_ranking);
         linear_ranking.getBackground().setAlpha(49);
 
+        tv_valor_puntaje = findViewById(R.id.tv_valor_puntaje);
+
         String [] ranking = getIntent().getStringArrayExtra("Ranking");
 
         participante1 = findViewById(R.id.participante1);
@@ -44,6 +47,8 @@ public class Ranking extends AppCompatActivity {
         participante2.setText(ranking[1]);
         participante3 = findViewById(R.id.participante3);
         participante3.setText(ranking[2]);
+
+        tv_valor_puntaje.setText(ranking[3]);
 
         navigationView = findViewById(R.id.navigation_ranking);
         Menu menu = navigationView.getMenu();

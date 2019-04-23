@@ -194,8 +194,8 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         update.execute();
     }
 
-    public void generarRanking () {
-        final String[] invitadosRanking = new String[3];
+    public void generarRankingYTraerPuntaje (final String id) {
+        final String[] invitadosRanking = new String[4];
         class GenerateRanking extends AsyncTask<String, Void, Void> {
 
             @Override
@@ -203,14 +203,23 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 Statement state;
                 try {
                     state = conn.createStatement();
-                    ResultSet rs = state.executeQuery("SELECT nombre FROM `invitado` ORDER BY puntaje DESC, tiempo DESC LIMIT 3");
+                    ResultSet rs = state.executeQuery("SELECT nombre, puntaje FROM `invitado` ORDER BY puntaje DESC, tiempo DESC LIMIT 3");
 
                     int i = 0;
                     while(rs.next()) {
                         String nombre = rs.getString("nombre");
-                        invitadosRanking[i] = nombre;
+                        String puntaje = rs.getString("puntaje");
+                        invitadosRanking[i] = nombre + "\n" + puntaje;
                         i++;
                     }
+
+                    rs = state.executeQuery("SELECT puntaje from `invitado` WHERE id = '" + id + "'");
+
+                    while (rs.next()) {
+                        String puntaje = rs.getString("puntaje");
+                        invitadosRanking[3] = puntaje;
+                    }
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
