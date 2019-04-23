@@ -146,7 +146,7 @@ public class Question extends AppCompatActivity {
         dialogoPuntos.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                setResult(RESULT_CANCELED);
+                setResult(90);
                 Intent intent = new Intent(Question.this, ProjectList.class);
                 startActivity(intent);
                 finish();

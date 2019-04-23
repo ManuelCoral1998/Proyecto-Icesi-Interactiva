@@ -128,16 +128,15 @@ public class ProjectList extends AppCompatActivity implements DBHandler.OnFinish
 
                 Intent i = new Intent(ProjectList.this, DescriptionProject.class);
                 i.putExtra("Proyecto", aVisitar);
-                startActivityForResult(i, 1);
+                startActivityForResult(i, 102);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == RESULT_CANCELED) {
+        if(requestCode == 102 && resultCode == 80) {
             Log.d("CERRAR", "CERRAR LISTA PROYECTOS");
-            setResult(RESULT_CANCELED);
             this.finish();
         }
     }

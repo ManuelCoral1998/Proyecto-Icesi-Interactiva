@@ -47,16 +47,21 @@ public class DescriptionProject extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(DescriptionProject.this, ScanQR.class);
-                startActivityForResult(i, 1);
+                startActivityForResult(i, 101);
             }
         });
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(RESULT_OK);
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        if(resultCode == RESULT_CANCELED) {
-            Log.d("CERRAR", "CERRAR");
-            setResult(RESULT_CANCELED);
+        if(requestCode == 101 && resultCode == 70) {
+            setResult(80);
             this.finish();
         }
     }

@@ -2,6 +2,7 @@ package com.alejandra.icesiinteractiva;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -86,6 +87,7 @@ public class ScanQR extends AppCompatActivity implements DBHandler.OnFinishQuest
 
                     dbHandler.traerPreguntas(proyectoQr);
                     barcodeDetector.release();
+                    setResult(70);
                     finish();
                     cameraSource.stop();
 
@@ -103,4 +105,5 @@ public class ScanQR extends AppCompatActivity implements DBHandler.OnFinishQuest
         //finish();
         //cameraSource.stop();
     }
+
 }
