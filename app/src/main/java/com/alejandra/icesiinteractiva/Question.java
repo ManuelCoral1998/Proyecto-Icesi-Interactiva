@@ -17,7 +17,10 @@ import com.alejandra.icesiinteractiva.DB.DBHandler;
 import com.alejandra.icesiinteractiva.model.Pregunta;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.Console;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Question extends AppCompatActivity {
 
@@ -34,11 +37,26 @@ public class Question extends AppCompatActivity {
 
     DBHandler dbHandler;
     FirebaseAuth auth;
+    private int segundos;
+    private Timer timer;
+
+    class Contador extends TimerTask {
+
+        @Override
+        public void run() {
+            segundos++;
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question);
+
+        this.segundos = 0;
+
+        timer = new Timer();
+        timer.schedule(new Contador(), 0, 1000);
 
         linear_preguntas = findViewById(R.id.linear_preguntas);
         linear_preguntas.getBackground().setAlpha(48);
@@ -51,7 +69,6 @@ public class Question extends AppCompatActivity {
 
         radioGroup1 = findViewById(R.id.radio_pregunta1);
         radioGroup2 = findViewById(R.id.radio_pregunta2);
-        Log.d("TAMAÑO", radioGroup1.getChildCount()+"");
 
         dbHandler = DBHandler.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -81,19 +98,24 @@ public class Question extends AppCompatActivity {
         enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                timer.cancel();
+
                 boolean p1 = comprobarPregunta1();
                 boolean p2 = comprobarPregunta2();
 
                 String id = auth.getCurrentUser().getUid();
 
                 int puntos = 0;
+                int tiempo = segundos;
+
+                Log.d("Tiempo: " ,tiempo + " segundos");
 
                 if (p1 && p2) {
                     puntos = 10;
-                    dbHandler.actualizarPuntaje(id, puntos);
+                    dbHandler.actualizarPuntaje(id, puntos, tiempo);
                 } else if (p1 || p2) {
                     puntos = 5;
-                    dbHandler.actualizarPuntaje(id, puntos);
+                    dbHandler.actualizarPuntaje(id, puntos, tiempo);
                 }
                 mostrarPuntaje(puntos);
             }

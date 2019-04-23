@@ -71,7 +71,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
 
                 int check = invitado.getAceptaInfo() ? 1: 0;
 
-                String info = "'" + invitado.getId() + "'" + "," + "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + check + "'" + "," + "'" + invitado.getPuntaje() + "'";
+                String info = "'" + invitado.getId() + "'" + "," + "'" + invitado.getEmail() + "'" + "," + "'" + invitado.getNickname() + "'" + "," + "'" + check + "'" + "," + "'" + invitado.getPuntaje() + "'"+ "," + "'" + 0 + "'";
                 Statement state;
 
                 try {
@@ -172,7 +172,7 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
         bring.execute();
     }
 
-    public void actualizarPuntaje (final String id, final int puntaje) {
+    public void actualizarPuntaje (final String id, final int puntaje, final int tiempo) {
 
         class UpdateData extends AsyncTask<String, Void, Void> {
 
@@ -181,8 +181,8 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 Statement state;
                 try {
                     state = conn.createStatement();
-                    Log.d("Acutaliar" , id);
-                    state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ "+puntaje+" WHERE id = '"+ id + "'");
+                    state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ " +puntaje+", " + "`tiempo` = tiempo + " + tiempo+" WHERE id = '" + id + "'");
+                    //state.execute("UPDATE `invitado` SET `puntaje`= puntaje+ "+puntaje+" WHERE id = '"+ id + "'");
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -203,12 +203,11 @@ public class DBHandler extends AsyncTask<String, Void, Void> {
                 Statement state;
                 try {
                     state = conn.createStatement();
-                    ResultSet rs = state.executeQuery("SELECT nombre FROM `invitado` ORDER BY puntaje DESC LIMIT 3");
+                    ResultSet rs = state.executeQuery("SELECT nombre FROM `invitado` ORDER BY puntaje DESC, tiempo DESC LIMIT 3");
 
                     int i = 0;
                     while(rs.next()) {
                         String nombre = rs.getString("nombre");
-                        Log.d("NOMBRES", nombre);
                         invitadosRanking[i] = nombre;
                         i++;
                     }
